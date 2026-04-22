@@ -62,19 +62,67 @@ iii. Para recorridos mayores a 1000 km se le cobrará $500 más el kilometraje e
 300, a razón de $1.5 por kilómetro. 
 """
 """"""
+"""
 car_kilometers = int(input("kilometers made: "))
 excedence = 300
 normal_tariff = 500
 plus_kilometers = car_kilometers - excedence
 plus_tariff = 500 + plus_kilometers * 3
+extra_tariff = 500 + plus_kilometers * 1.5
 
 
 
 if car_kilometers < 300:
     print("your tariff is ", normal_tariff)
 elif car_kilometers > 300 and car_kilometers < 1000:
-    print("your tariff is ", plus_tariff  )
+    print("your tariff is ", plus_tariff )
+else:
+    print("your tariff is ", extra_tariff)
+"""
 
+"""
+1. Operaciones de orden con 3 nros.
+Realizar un programa que tome tres números, los ordene de mayor a menor. Sobre los valores ordenados diga si 
+el tercero es el resto de la división de los dos primeros. 
+"""
+"""
+number_1 = int(input("first number: "))
+number_2 = int(input("second number: "))
+number_3 = int(input("third number: "))
+
+first_condition = number_1 > number_2 > number_3
+second_condition = number_1 > number_3 > number_2
+third_condition = number_2 > number_1 > number_3
+fourth_condition = number_2 > number_3 > number_1
+fifth_condition = number_3 > number_2 > number_1
+sixth_condition = number_3 > number_1 > number_2
+
+check_rest_one = number_1 % number_2 == number_3
+check_rest_two = number_2 % number_1 == number_3
+check_rest_three = number_3 % number_2 == number_1
+check_rest_fourth = number_2 % number_3 == number_1
+check_rest_five = number_3 % number_1 == number_2
+check_rest_sixth = number_1 % number_3 == number_2
+
+if first_condition:
+    print("the order is: ", number_1 , number_2 , number_3)
+    print("the rest is the third added value", check_rest_one)
+elif second_condition:
+    print("the orider is: ", number_1, number_3, number_2)
+    print("the rest is the third added value", check_rest_sixth)
+elif third_condition:
+    print("the order is: ", number_2, number_1, number_3)
+    print("the rest is the third added value", check_rest_two)
+elif fourth_condition:
+    print("the order is: ", number_2, number_3, number_1)
+    print("the rest is the third added value", check_rest_fourth)
+elif fifth_condition:
+    print("the order is: ", number_3, number_2, number_1)
+    print("the rest is the third added value", check_rest_three)
+else:
+    print("the order is: ", sixth_condition)
+    print("the rest is the third added value", check_rest_five)
+"""
 
 
 

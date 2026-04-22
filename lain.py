@@ -5,7 +5,8 @@ monto_base = int(input("Ingrese un monto base"))
 letra = codigo[0]
 bloque = int(codigo[1] + codigo[2])
 
-
+if codigo < len(codigo[6]):
+    codigo
 # Obtención del porcentaje
 
 
