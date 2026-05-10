@@ -46,3 +46,4 @@ else:
     print("cero units: ", counter_0,  "units > 10000: ",counter_1, "units < 10000 < 15000: ", counter_2, "units > 15000: ", counter_strike)
     print("new cars = ", data )
 
+
