@@ -23,7 +23,7 @@ for i in range(racers_number):
     if best_time is None or times < best_time:
         best_time = times
         name_count = names
-
+ 
 print("the winner is: ", name_count)
 
 average = time_count/racers_number
