@@ -18,6 +18,8 @@ en pantalla.
 	x = int(input(‘how much do you love assembly?: ‘))
 	s = s + x
 """
+"""
+
 numbers = 0
 data = 0
 counter_0 = 0
@@ -45,5 +47,61 @@ while numbers != -1:
 else:
     print("cero units: ", counter_0,  "units > 10000: ",counter_1, "units < 10000 < 15000: ", counter_2, "units > 15000: ", counter_strike)
     print("new cars = ", data )
+"""
+"""
+Complejo de cines
+Desarrollar un programa que permita procesar funciones de un complejo de cines. Por cada función se conoce:
+ cantidad de espectadores y descuento (S/N). La carga termina cuando la cantidad de espectadores sea igual a 
+ 0 (cero).
 
+El programa deberá:
+
+a) Calcular la recaudación total del complejo, considerando que el valor de la entrada es de $50 en los días
+ con descuento y $75 en los días sin descuento.
+
+b) Determinar cuántas funciones con descuento se efectuaron y qué porcentaje representan sobre el total de 
+funciones.
+"""
+counter_discount = 0
+counter_function = 0
+discount_function = 0
+counter_full = 0
+function_full = 0
+function_counter = 0
+total = 0
+discount_accumulator = 0
+earns = 0
+percentage = 0
+quantity = int(input("spectators: "))
+
+while quantity != 0:
+    discount = input("discount: ")
+
+    if discount == "S":
+        discount_total = 50 * quantity
+        discount_accumulator = discount_accumulator + discount_total
+        discount_function = discount_function + 1
+        function_counter = function_counter + 1
+
+    else:
+        full_price = 75 * quantity
+        counter_full = counter_full + full_price
+        function_full = function_full + 1
+        function_counter = function_counter + 1
+
+
+    quantity = int(input("spectators: "))
+    total = discount_accumulator + counter_full
+
+
+    percentage = (discount_function / function_counter) * 100
+
+print("discount: ", discount_accumulator)
+print("discount functions: ", discount_function)
+print("full price: ", counter_full)
+print("full price functions: ", function_full)
+print("functions made: ", function_counter)
+print("discount percentage: ", percentage)
+
+print("total earns: ", total)
 
