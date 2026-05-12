@@ -62,6 +62,8 @@ a) Calcular la recaudación total del complejo, considerando que el valor de la 
 b) Determinar cuántas funciones con descuento se efectuaron y qué porcentaje representan sobre el total de 
 funciones.
 """
+
+"""
 counter_discount = 0
 counter_function = 0
 discount_function = 0
@@ -104,4 +106,60 @@ print("functions made: ", function_counter)
 print("discount percentage: ", percentage)
 
 print("total earns: ", total)
+"""
+
+"""
+2. Ventas por sucursal
+Ingresar una serie de números por teclado que representan la cantidad de ventas realizadas en las
+ diferentes sucursales de un país de una determinada empresa.
+
+Los requerimientos funcionales del programa son:
+
+a) Informar la cantidad de ventas ingresadas.
+
+b) Total de ventas.
+
+c) Cantidad de ventas cuyo valor este comprendido entre 100 y 300 unidades.
+
+d) Cantidad de ventas con 400, 500 y 600 unidades.
+
+e) Indicar si hubo una cantidad de ventas inferior a 50 unidades.
+
+Usted deberá ingresar cantidades de ventas hasta que se ingrese un valor negativo
+"""
+
+
+sales = int(input("input sales: "))
+if sales >=0:
+    total = int(input("input total: "))
+sales_counter = 0
+total_accumulator = 0
+between_1 = 0
+between_2 = 0
+between_3 = 0
+
+while sales >= 0:
+    sales_counter = sales_counter + sales
+    total_accumulator = total_accumulator + total
+
+
+    if 100 <= sales <= 300:
+        between_1 = between_1 + 1
+
+    elif sales == 400 or sales == 500 or sales == 600:
+        between_2 = between_2 + 1
+
+    elif sales <= 50:
+        between_3 = between_3 + 1
+
+
+    sales = int(input("input sales: "))
+    if sales >=0:
+        total = int(input("input total: "))
+
+print("sales: ", sales_counter)
+print("total: ", total_accumulator)
+print("100-300: ",  between_1)
+print("400,500,600: ", between_2)
+print("50: ", between_3)
 
