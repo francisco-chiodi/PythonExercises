@@ -127,7 +127,7 @@ e) Indicar si hubo una cantidad de ventas inferior a 50 unidades.
 
 Usted deberá ingresar cantidades de ventas hasta que se ingrese un valor negativo
 """
-
+"""
 
 sales = int(input("input sales: "))
 if sales >=0:
@@ -163,3 +163,4 @@ print("100-300: ",  between_1)
 print("400,500,600: ", between_2)
 print("50: ", between_3)
 
+"""
