@@ -52,6 +52,7 @@ Los valores de
 cada uno de esos 17000 números deben estar entre 1000 y 37000 (incluidos ambos -
 DEBE usar random.randint(1000, 37000) para generar cada uno de estos números).
 """
+"""
 import random
 compare = None
 minor = None
@@ -86,11 +87,13 @@ for i in range(17000):
         if minor is None or numbers < minor:
             minor = numbers
     """
+"""
     Determinar el porcentaje entero que representa la cantidad de números pares generados sobre la cantidad
     total de números procesados. Aclaración: NO se pide el porcentaje redondeado, sino truncado, sin
     decimales. Observación: en el cálculo de este porcentaje, haga primero la multiplicación que corresponda, y
     luego la división.
     """
+"""
     if numbers % 2 == 0:
         counter_even = counter_even + 1
         percentage_even = (counter_even * 100) // 17000
@@ -102,6 +105,83 @@ print("counter even: ",counter_even)
 print("percentage even: ",percentage_even)
 
 
+"""
+"""
+Turno 02:
+Desarrolle un programa completo en Python que permita generar una sucesión de 14000 números
+enteros aleatorios, usando como semilla del generador al valor 973 (es decir, random.seed(973)). 
+Los valores de
+cada uno de esos 14000 números deben estar entre 100 y 21100 (incluidos ambos -
+DEBE usar random.randint(100, 21100) para generar cada uno de estos números).
+A modo de elemento de control, y para que cada estudiante sepa si la secuencia que está generando es 
+la correcta,
+indicamos aquí cuánto debe valer la suma de todos los números generados con el mecanismo indicado:
+✓ Suma de todos los números generados: 149000017
+A partir de esa sucesión, el programa debe:
+1. Determinar cuántos eran menores o iguales que 11000, cuántos eran mayores que 11000 pero menores
+que 17000 y además eran divisibles por 3 y por 8 al mismo tiempo, y cuántos eran mayores o iguales que
+17000.
+2. Determinar el promedio entero de todos los números generados que sean divisibles por 9 pero que sean
+también menores o iguales a 15000. Aclaración: NO se pide el promedio redondeado, sino el promedio
+truncado, sin decimales.
+3. Determinar el mayor entre todos los números generados cuyo valor esté entre 1000 y 14000 (includos
+ambos).
+4. Determinar el porcentaje entero que la cantidad de números divisibles por 6 representa sobre la cantidad
+total de números. Aclaración: NO se pide el porcentaje redondeado, sino truncado, sin decimales.
+Observación: en el cálculo de este porcentaje, haga primero la multiplicación que corresponda, y luego la
+división.
+"""
+
+import random
+random.seed(973)
+
+counter_1 = 0
+counter_2 = 0
+counter_3 = 0
+counter_4 = 0
+counter_5 = 0
+compare_4 = None
+add = 0
+average = 0
+percentage = 0
+sum_check = 0
+
+
+for i in range(14000):
+    numbers = random.randint(100,21100)
+    sum_check = sum_check + numbers
+
+    if numbers <= 11000:
+        counter_1 = counter_1 + 1
+
+    if 11000 < numbers < 17000 and numbers % 3 == 0 and numbers % 8 == 0:
+        counter_2 = counter_2 + 1
+
+    if  numbers >= 17000:
+        counter_3 = counter_3 + 1
+
+    if numbers % 9 == 0 and numbers <= 15000:
+        counter_5 = counter_5 + 1
+        add = add + numbers
+
+
+        average = add//counter_5
+
+    if 1000 <= numbers <= 14000:
+        if compare_4 is None or compare_4 < numbers: #"Si el número nuevo es más grande que mi récord, tengo un nuevo récord".
+            compare_4 = numbers
+
+    if numbers % 6 == 0:
+        counter_4 = counter_4 + 1
+        percentage = (counter_4 * 100)//14000
+
+print("counter 1: ",counter_1)
+print("counter 2: ",counter_2)
+print("counter 3: ",counter_3)
+print("average: ",average)
+print("the bigger is: ", compare_4)
+print("percentage: ",percentage)
+print("sum check should be 149000017 ",sum_check)
 
 
 
