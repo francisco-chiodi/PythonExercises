@@ -73,6 +73,8 @@ b) Determinar en qué mes recibió el sueldo más bajo del período.
 c) Informar el sueldo promedio del semestre.
 
 """
+
+"""
 months = 6
 salary_accumulator = 0
 best_salary = None
@@ -170,10 +172,37 @@ print("best salary is: ", best_salary, "on the month: ",name_1)
 print("aguinaldo: ",boost)
 print("lesser salary was: ", less_salary , "on the month: ",name )
 print("the average salairi is: ", average)
+"""
+
+"""
+Decimal a Hexadecimal
+Generar n numeros aleatorios entre el rango de 5000 y 450000, 
+por cada uno de ellos mostrar y generar el numero hexadecimal
+"""
+
+import random
+"""
+for i in range(5000,450000):
+    module = i % 16
+    if module == 10:
+        module = "A"
+    elif module == 11:
+        module = "B"
+    elif module == 12:
+        module = "C"
+    elif module == 13:
+        module = "D"
+    elif module == 14:
+        module = "E"
+    elif module == 15:
+        module = "F"
+
+
+    print(module)
 
 
 
-
+"""
 
 
 
