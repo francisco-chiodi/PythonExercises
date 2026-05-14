@@ -224,24 +224,13 @@ for i in range(20000):
     if number % 9 == 0:
         counter_3 = counter_3 + 1
 
-    """
-    Indicar el mayor entre todos aquellos números cuyo último dígito sea mayor o igual a 5 pero menor o igual a 8.
-Indicar cuantos números generados son pares menores a 15000.
-    """
-
     module = number % 10
     if 5 <= module <= 8:
         if bigger is None or bigger < number:
             bigger = number
 
-
-
-        print("the module is ", module)
-
-
     if number % 2 == 0 and number > 15000:
         counter_4 = counter_4 + 1
-
 
 #counter 4 is for even numbers
 
