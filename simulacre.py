@@ -132,6 +132,7 @@ Observación: en el cálculo de este porcentaje, haga primero la multiplicación
 división.
 """
 
+""""
 import random
 random.seed(973)
 
@@ -182,6 +183,78 @@ print("average: ",average)
 print("the bigger is: ", compare_4)
 print("percentage: ",percentage)
 print("sum check should be 149000017 ",sum_check)
+"""
+"""
+Desarrolle un programa completo en Python que permita generar una sucesión de 20000 números enteros aleatorios, usando 
+como semilla del generador el numero 49 (es decir random.seed(49)). Los valores de cada uno de esos 20000 números deben 
+estar entre 1 y 45000 (incluidos ambos) (DEBE usar random.randint(1, 45000) para generar esos números).
+
+A modo de elemento de control, y para que cada estudiante sepa si la secuencia que está generando es la correcta, 
+indicamos aquí cuánto debe valer la suma de todos los números generados con el mecanismo indicado:
+
+Suma de todos los números generados: 451459554
+A partir de esa sucesión el programa debe:
+
+Indicar cuantos números eran múltiplos de 5, cuántos eran múltiplos de 7 y cuántos eran múltiplos de 9.
+Indicar el mayor entre todos aquellos números cuyo último dígito sea mayor o igual a 5 pero menor o igual a 8.
+Indicar cuantos números generados son pares menores a 15000.
+Indicar el porcentaje entero que representa el punto anterior sobre el total de números procesados. Aclaración 1: NO
+se pide el porcentaje redondeado, sino el porcentaje truncado, sin decimales. Aclaración 2: en el cálculo de este porcen
+taje, haga primero la multiplicación que corresponda, y luego la división.
+Cuando finalice, en las consignas que siguen en este mismo cuestionario, se le pedirá que informe cada uno de estos resu
+ltados, y también se le pedirá que suba el archivo de código fuente con el programa desarrollado (por lo que tenga muy presente en donde dejó ese archivo). Entienda: Si NO sube su código fuente, los profesores procederán a reprobar manualmente su parcial. Habrá también UNA pregunta de opciones múltiples referida a este mismo enunciado o a temas relacionados con él.
+"""
+import random
+random.seed(49)
+counter_1 = 0
+counter_2 = 0
+counter_3 = 0
+counter_4 = 0
+bigger = None
+percentage = 0
+
+for i in range(20000):
+    number = random.randint(1, 45000)
+
+    if number % 5 == 0:
+        counter_1 = counter_1 + 1
+    if number % 7 == 0:
+        counter_2 = counter_2 + 1
+
+    if number % 9 == 0:
+        counter_3 = counter_3 + 1
+
+    """
+    Indicar el mayor entre todos aquellos números cuyo último dígito sea mayor o igual a 5 pero menor o igual a 8.
+Indicar cuantos números generados son pares menores a 15000.
+    """
+
+    module = number % 10
+    if 5 <= module <= 8:
+        if bigger is None or bigger < number:
+            bigger = number
+
+
+
+        print("the module is ", module)
+
+
+    if number % 2 == 0 and number > 15000:
+        counter_4 = counter_4 + 1
+
+
+#counter 4 is for even numbers
+
+percentage = (counter_4 * 100) // 20000
+
+print("multiples of 5: ",counter_1)
+print("multiples of 7: ",counter_2)
+print("multiples of 9: ",counter_3)
+print("evens lesser than 15000 ", counter_4)
+print("percentage is: ", percentage)
+print("bigger is: ", bigger)
+
+
 
 
 
