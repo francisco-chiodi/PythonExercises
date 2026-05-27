@@ -28,35 +28,35 @@ Determinar cuántas palabras contuvieron sólo una vez la expresión "mo": 1
 """
 
 text = input("input text: ")
-letter = 0
-words = 0
-words_4 = 0
+letter_count = 0
+letter_count2 = 0
+word_count1 = 0
+words_count = 0
+counter_letter = 0
+space = " "
 xy = False
 mo = False
 
-
 for i in text:
+
     if i not in " .,": #ignore.
-        letter += 1
+        letter_count += 1
+
         if i == "x" or i == "y":
             xy = True
         if i == "mo":
             mo = True
-
     else:
-        if i > 0:
-            words += 1
-        if letter > 4:
-            words_4 += 1
+        words_count += 1
 
 
+#print("letters", letter_count)
+print("words", counter_letter)
 
+#print("words", words_count)
+#print("words2", letter_count2)
 
-
-print("letters", letter)
-print("xy", xy)
-print("words", words)
-print("words > 4", words_4)
+#print("words > 4", words_4)
 
 
 
