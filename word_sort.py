@@ -27,36 +27,68 @@ Determinar cuántas palabras contuvieron sólo una vez la expresión "mo": 1
 
 """
 
-text = input("input text: ")
-letter_count = 0
-letter_count2 = 0
-word_count1 = 0
-words_count = 0
-counter_letter = 0
-space = " "
-xy = False
-mo = False
+
+
+text = input("input the text: ")
+
+xy = lc = wc = l4 = 0
+have_xy = False
+
+def is_xy(i):
+    if i in "xy":
+        return True
+    else:
+        return False
 
 for i in text:
 
-    if i not in " .,": #ignore.
-        letter_count += 1
+    if i != " " and i != ".":
+        lc += 1
 
-        if i == "x" or i == "y":
-            xy = True
-        if i == "mo":
-            mo = True
+        if is_xy(i) == True:
+
+            have_xy = True
+
     else:
-        words_count += 1
+        if lc > 0:
+            wc += 1
+
+            if have_xy == True:
+                xy += 1
 
 
-#print("letters", letter_count)
-print("words", counter_letter)
+            if lc > 4:
+                l4  += 1
+        lc = 0
+        have_xy = False
 
-#print("words", words_count)
-#print("words2", letter_count2)
 
-#print("words > 4", words_4)
 
+
+print("words", wc)
+print("words > 4", l4)
+print("xy words", xy)
+
+"""
+cl , cp , count_1 = 0
+vocal_in_3 = False
+def is_vocal(car)
+    if car in 'aeiou'
+        return True
+    return False
+
+for car in text 
+    if car == " " or car == ".":
+    if cl == 3 or cl == 3 or cl == 7:
+        count_1 += 1
+        vocal_int_3 = False #reinicio de bandera
+
+    else:
+    cl += 1
+    if cl == 3 and vocal(car)
+        vocal_int_3 = True
+    
+    
+"""
 
 
