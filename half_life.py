@@ -31,6 +31,7 @@ with open("tratamientos.txt" , "r") as file:
 
 
             #print(descriptive_letter) #jijo
+    print("r1", treatments)
     print("r2", counter_r2)
     print("r3", counter_r3)
     print("r4", counter_r4)
