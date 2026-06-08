@@ -15,28 +15,32 @@ with open("tratamientos.txt", "r") as file:
         #              BLOCK1
         if line[0:20] == "# 296645352478207261":
             in_block_1 = True
+            base_mount_AL = line[2:8]
+            base_mount_MZ = line[8:14]
             continue
 
         if "A" <= line[25:31] <= "L" and in_block_1 == True:
-            base_mount_AL = line[2:7]
+            extra_mount_AL = line[2:7]
             print("line 1 AL", line, base_mount_AL)
 
         if "M" <= line[25:31] <= "Z" and in_block_1 == True and line[0] != "U":
-            base_mount_MZ = line[8:14]
+            extra_mount_MZ = line[8:14]
             print("line 1 MZ", line, base_mount_MZ)
 
         #              BLOCK2
         if line[0:20] == "# 196645252478107261":
             in_block_1 = False
             in_block_2 = True
+            base_mount_AL = line[2:8]
+            base_mount_MZ = line[8:14]
             continue
 
         if "A" <= line[25:31] <= "L" and in_block_2 == True:
-            base_mount_AL = line[2:7]
+            extra_mount_AL = line[2:7]
             print("line 2 AL", line, base_mount_AL)
 
-        if "M" <= line[25:30] <= "Z" and in_block_2 == True:
-            base_mount_MZ = line[8:14]
+        if "M" <= line[25:31] <= "Z" and in_block_2 == True:
+            extra_mount_MZ = line[8:14]
             print("line 2 MZ", line, base_mount_MZ)
 
         #              BLOCK3
@@ -44,18 +48,22 @@ with open("tratamientos.txt", "r") as file:
             in_block_1 = False
             in_block_2 = False
             in_block_3 = True
+            base_mount_AL = line[2:8]
+            base_mount_MZ = line[8:14]
             continue
 
 
         if "A" <= line[25:31] <= "L" and in_block_3 == True:
-            base_mount_AL = line[2:7]
+            extra_mount_AL = line[2:7]
             print("line 3 AL", line, base_mount_AL)
 
 
         if "M" <= line[25:31] <= "Z" and in_block_3 == True:
-            base_mount_MZ = line[8:14]
+            extra_mount_MZ = line[8:14]
             print("line 3 MZ", line, base_mount_MZ)
+        elif "#" in line[0]:
             in_block_3 = False
+
 
 
 
