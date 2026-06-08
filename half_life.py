@@ -15,59 +15,76 @@ with open("tratamientos.txt", "r") as file:
         #              BLOCK1
         if line[0:20] == "# 296645352478207261":
             in_block_1 = True
-            base_mount_AL = line[2:8]
-            base_mount_MZ = line[8:14]
+            base_amount_AL = line[2:8]
+            base_amount_MZ = line[8:14]
+            base_amount_U = line[14:20]
+            numcheck = line[0:20]
             continue
 
         if "A" <= line[25:30] <= "L" and in_block_1 == True:
-            extra_mount_AL = line[31:38]
-            print("line 1 AL", line, "base mount 1 AL",base_mount_AL, "extra mount 1 AL",extra_mount_AL)
+            extra_amount_AL = line[31:38]
+            print("line 1 AL", line, "base mount 1 AL",base_amount_AL, "extra mount 1 AL",extra_amount_AL)
 
-            #total_AL_1 = base_mount_AL + extra_mount_AL
 
         if "M" <= line[25:30] <= "Z" and in_block_1 == True and line[0] != "U":
-            extra_mount_MZ = line[31:38]
-            print("line 1 MZ", line, base_mount_MZ)
+            extra_amount_MZ = line[31:38]
+            print("line 1 MZ", line, "base mount 1 MZ",base_amount_MZ, "extra mount 1 MZ",extra_amount_MZ , "numcheck", numcheck)
+            #total_1 = base_mount_MZ + extra_mount_AL
+        elif "M" <= line[25:30] <= "Z" and in_block_1 == True and line[0] == "U":
+            print("line 3 U", line, "base mount 3 AL",base_amount_U , "numcheck", numcheck)
+
 
         #              BLOCK2
         if line[0:20] == "# 196645252478107261":
             in_block_1 = False
             in_block_2 = True
-            base_mount_AL = line[2:8]
-            base_mount_MZ = line[8:14]
+            numcheck = line[0:20]
+            base_amount_AL = line[2:8]
+            base_amount_MZ = line[8:14]
+            base_amount_U = line[14:20]
             continue
 
         if "A" <= line[25:30] <= "L" and in_block_2 == True:
-            extra_mount_AL = line[31:38]
+            extra_amount_AL = line[31:38]
 
 
-            print("line 2 AL", line, "base mount 2 AL",base_mount_AL, "extra mount 2 AL",extra_mount_AL)
+            print("line 2 AL", line, "base mount 2 AL",base_amount_AL, "extra mount 2 AL",extra_amount_AL, "numcheck", numcheck)
 
-        if "M" <= line[25:30] <= "Z" and in_block_2 == True:
-            extra_mount_MZ = line[31:38]
-            print("line 2 MZ", line, base_mount_MZ)
+        if "M" <= line[25:30] <= "Z" and in_block_2 == True and line[25] != "U":
+            extra_amount_MZ = line[31:38]
+            print("line 2 MZ", line, "base mount 2 MZ",base_amount_MZ, "extra mount 2 AL",extra_amount_MZ , "numcheck", numcheck)
+
+        elif "M" <= line[25:30] <= "Z" and in_block_2 == True and line[25] == "U":
+            print("THIS IS U", line)
+
 
         #              BLOCK3
         if line[0:20] == "# 48500 62953 294690":
             in_block_1 = False
             in_block_2 = False
             in_block_3 = True
-            base_mount_AL = line[2:8]
-            base_mount_MZ = line[8:14]
+            numcheck = line[0:20]
+            base_amount_AL = line[2:8]
+            base_amount_MZ = line[8:14]
+            base_amount_U = line[14:20]
             continue
 
 
         if "A" <= line[25:30] <= "L" and in_block_3 == True:
-            extra_mount_AL = line[31:38]
-            print("line 3 AL", line, "base mount 3 AL",base_mount_AL, "extra mount 3 AL",extra_mount_AL)
+            extra_amount_AL = line[31:38]
+            print("line 3 AL", line, "base mount 3 AL",base_amount_AL, "extra mount 3 AL",extra_amount_AL , "numcheck", numcheck)
 
 
-        if "M" <= line[25:30] <= "Z" and in_block_3 == True:
-            extra_mount_MZ = line[31:38]
-            print("line 3 MZ", line, base_mount_MZ)
+        if "M" <= line[25:30] <= "Z" and in_block_3 == True and line[25] != "U":
+            extra_amount_MZ = line[31:38]
+            print("line 3 MZ", line, "base mount 3 MZ",base_amount_MZ, "extra mount 3 AL",extra_amount_MZ , "numcheck", numcheck)
+
+        elif "M" <= line[25:30] <= "Z" and in_block_3 == True and line[25] == "U":
+            amount_U = base_amount_U
+            print("THIS IS U", line, base_amount_U, "numcheck" , numcheck)
+
         elif "#" in line[0]:
             in_block_3 = False
-
 
 
 
