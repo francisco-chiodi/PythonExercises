@@ -1,29 +1,53 @@
 with open("tratamientos.txt", "r") as file:
     monto_base_AL = monto_base_MZ = monto_base_U = monto_extra = 0
 
+
     for linea in file:
 
 
+
+        def porcentaje_ICD10(cantidad, total):
+            porcentaje = (total * cantidad) // 100
+            return porcentaje
+
+
         if linea[0] == "#":
-            monto_base_AL = linea[2:8]
-            monto_base_MZ = linea[8:14]
-            monto_base_U = linea[14:20]
+            monto_base_AL = int(linea[2:8])
+            monto_base_MZ = int(linea[8:14])
+            monto_base_U = int(linea[14:20])
             numeral = linea[0:20]
+
             continue
 
+
+
         elif "A" <= linea[25] <= "L":
-            monto_extra = linea[31:38]
-            monto_base = monto_base_AL
-            print("LINEA AL:", linea, "AL monto extra =", monto_extra, "AL monto base =", monto_base_AL, "numeral:",
-                  numeral)
+
+            monto_extra = int(linea[31:38])
+            total = monto_extra + monto_base_AL
+            cantidad = int(linea[29])
+
+            porcentaje_total = porcentaje_ICD10(cantidad,total)
+            print("LINEA AL:", linea,
+                  "\nAL monto extra:", monto_extra,
+                  "\nAL monto base:", monto_base_AL,
+                  "\ntotal:", total,
+                  "\numeral:", numeral,
+                  "\nporcentaje a sacar:", cantidad,
+                  "\nporcentaje total:", porcentaje_total)
+
 
 
 
         elif "M" <= linea[25] <= "Z" and linea[25] != "U":
-            monto_extra = linea[31:38]
-            monto_base = monto_base_MZ
-            print("LINEA MZ:", linea, "MZ monto extra =", monto_extra, "MZ monto base =", monto_base_MZ, "numeral:",
-                  numeral)
+            monto_extra = int(linea[31:38])
+            total = monto_extra + monto_base_MZ
+            porcentaje_total = porcentaje_ICD10(cantidad,total)
+            print("LINEA MZ:", linea,
+                  "\nMZ monto extra:", monto_extra,
+                  "\nMZ monto base:", monto_base_MZ,
+                  "\numeral:", numeral,
+                  "\")
 
 
         elif linea[25] == "U":
