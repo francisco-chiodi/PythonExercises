@@ -28,7 +28,7 @@ with open("tratamientos.txt", "r") as file:
             cantidad = int(linea[29])
             porcentaje_total = porcentaje_ICD10(cantidad,total)
 
-            print("LINEA AL:", linea,
+            print("\nLINEA AL:", linea,
                   "\nAL monto extra:", monto_extra,
                   "\nAL monto base:", monto_base_AL,
                   "\ntotal:", total,
@@ -42,7 +42,7 @@ with open("tratamientos.txt", "r") as file:
             cantidad = int(linea[29])
             porcentaje_total = porcentaje_ICD10(cantidad,total)
 
-            print("LINEA MZ:", linea,
+            print("\nLINEA MZ:", linea,
                   "\nMZ monto extra:", monto_extra,
                   "\nMZ monto base:", monto_base_MZ,
                   "\ntotal:", total,
@@ -52,9 +52,18 @@ with open("tratamientos.txt", "r") as file:
 
 
         elif linea[25] == "U":
-            monto_extra = linea[31:38]
-            monto_base = monto_base_U
-            print("LINEA U:", linea, "U monto extra =", monto_extra, "U monto base:", monto_base_U, "numeral:", numeral)
+            monto_extra = int(linea[31:38])
+            total = monto_extra + monto_base_U
+            cantidad = int(linea[29])
+            porcentaje_total = porcentaje_ICD10(cantidad,total)
+
+            print("\nLINEA U:", linea,
+                  "\nU monto extra:", monto_extra,
+                  "\nU monto base:", monto_base_U,
+                  "\ntotal:" ,total,
+                  "\nnumeral:", numeral,
+                  "\nporcentaje a sacar:", cantidad,
+                  "\nporcentaje total:", porcentaje_total)
 
         """
         print("LINEA AL:",linea, "AL monto extra =", monto_extra ,"AL monto base =", monto_base_AL, "numeral:",numeral)
