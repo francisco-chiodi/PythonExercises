@@ -4,12 +4,9 @@ with open("tratamientos.txt", "r") as file:
 
     for linea in file:
 
-
-
         def porcentaje_ICD10(cantidad, total):
             porcentaje = (total * cantidad) // 100
             return porcentaje
-
 
         if linea[0] == "#":
             monto_base_AL = int(linea[2:8])
@@ -18,8 +15,6 @@ with open("tratamientos.txt", "r") as file:
             numeral = linea[0:20]
 
             continue
-
-
 
         elif "A" <= linea[25] <= "L":
 
@@ -49,7 +44,6 @@ with open("tratamientos.txt", "r") as file:
                   "\nnumeral:", numeral,
                   "\nporcentaje a sacar:", cantidad,
                   "\nporcentaje total:", porcentaje_total)
-
 
         elif linea[25] == "U":
             monto_extra = int(linea[31:38])
