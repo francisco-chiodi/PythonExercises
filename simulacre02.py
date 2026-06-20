@@ -62,29 +62,48 @@ Determinar la cantidad de palabras comienzan con un dígito impar, pero tales qu
 caracteres son letras en minúsculas. Por ejemplo, en el texto: "La clave 1alfaxy puede funcionar
 en lugar de 1beta9 o en lugar de 9sigmaZ." hay solo una palabra que cumple: "1alfaxy".
 """
-odd_digit = w = c  = odd = 0
+counter_odd = counter_minus = counter_both = w = c = 0
 
-"""
-def lowercase(car):
+minus = False
+odds = False
 
-    if car == int and car % 2 != 0:
+def is_odd(car):
+    if car in ("1","3","5","7","9"):
+        print(car)
         return True
     else:
         return False
-"""
+
+def is_minus(car):
+    if "a" <= car <= "z":
+        print(car)
+        return True
+    else:
+        return False
+
 
 for car in texto:
+
 #odd digit , no lower case
     if  car != " " and car !=".":
         c +=1
-        """
-        is_odd = lowercase(car)
-        if is_odd == False:
-            print(car)
-        """
+
+        if is_odd(car):
+            have_odd = True
+            counter_odd +1
+
+        if minus is True and odds is True:
+            counter_both += 1
 
     if car == " " or car == ".":
         w +=1
+
+
+
+
+print("counter odd is:", counter_odd)
+print("counter minus is :  ", counter_minus)
+print("counter both: ",counter_both)
 
 
 
