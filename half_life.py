@@ -132,11 +132,3 @@ causas externas
 
 Este capítulo utiliza la sección 
 """
-
-
-
-
-
-
-
-
