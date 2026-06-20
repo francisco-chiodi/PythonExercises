@@ -1,4 +1,5 @@
 suma = contador = promedio = 0
+mayor = None
 
 def promedio_19(suma, contador):
 
@@ -8,6 +9,11 @@ def promedio_19(suma, contador):
 def porcentaje_x(total):
     total_x = (total * 5) // 100
     return total_x
+
+def mayor_all(total , mayor ):
+    if mayor is None or mayor < total:
+        mayor = total
+        return mayor
 
 with open("tratamientos.txt", "r") as file:
     monto_base_AL = monto_base_MZ = monto_base_U = monto_extra = 0
@@ -31,6 +37,10 @@ with open("tratamientos.txt", "r") as file:
             total = monto_extra + monto_base_AL
             cantidad = int(linea[29])
             porcentaje_total = porcentaje_ICD10(cantidad, total)
+
+            mayor_total = mayor_all(total, mayor)
+            print(mayor_total , linea , "total " , total)
+
 
             if linea[39] == "X":
                 porcentaje_39 = porcentaje_x(total)
@@ -109,11 +119,10 @@ with open("tratamientos.txt", "r") as file:
                   "\nporcentaje total:", porcentaje_total)
         
             """
-            """
-        if "A" <= linea[25] <= "Z" and linea !="U" :
-            print(linea)
+
+
             
-            """
+
             """
         print("LINEA AL:",linea, "AL monto extra =", monto_extra ,"AL monto base =", monto_base_AL, "numeral:",numeral)
         print("LINEA MZ:",linea, "MZ monto extra =", monto_extra ,"MZ monto base =", monto_base_MZ, "numeral:",numeral)
