@@ -1,5 +1,15 @@
 suma = contador = promedio = 0
 mayor = None
+linea_mayor_AL = ""
+
+mayor_x = None
+linea_mayor_X = ""
+
+mayor_mz = None
+linea_mayor_mz = ""
+
+mayor_mzx = None
+linea_mayor_mzx = ""
 
 def promedio_19(suma, contador):
 
@@ -9,11 +19,6 @@ def promedio_19(suma, contador):
 def porcentaje_x(total):
     total_x = (total * 5) // 100
     return total_x
-
-def mayor_all(total , mayor ):
-    if mayor is None or mayor < total:
-        mayor = total
-        return mayor
 
 with open("tratamientos.txt", "r") as file:
     monto_base_AL = monto_base_MZ = monto_base_U = monto_extra = 0
@@ -35,16 +40,27 @@ with open("tratamientos.txt", "r") as file:
         elif "A" <= linea[25] <= "L":
             monto_extra = int(linea[31:38])
             total = monto_extra + monto_base_AL
+            memo_total = total
             cantidad = int(linea[29])
             porcentaje_total = porcentaje_ICD10(cantidad, total)
 
-            mayor_total = mayor_all(total, mayor)
-            print(mayor_total , linea , "total " , total)
+            if mayor is None or mayor < total:
+                mayor = total
+                linea_mayor_AL = linea
+            #print("AL",mayor , linea_mayor_AL)
 
 
             if linea[39] == "X":
                 porcentaje_39 = porcentaje_x(total)
                 total_39 = total + porcentaje_39
+
+
+                if mayor_x is None or mayor_x < total_39:
+                    mayor_x = total_39
+                    linea_mayor_X = linea
+
+                #print("X",mayor_x ,linea_mayor_X)
+
                 """
                 print("\nx total ", total_39 ,
                       "\nlinea x" ,linea ,
@@ -65,11 +81,18 @@ with open("tratamientos.txt", "r") as file:
             total = monto_extra + monto_base_MZ
             cantidad = int(linea[29])
             porcentaje_total = porcentaje_ICD10(cantidad,total)
+
+            if mayor_mz is None or mayor_mz < total:
+                mayor_mz = total
+                linea_mayor_mz = linea
+            #print("MZ", mayor_mz, linea_mayor_mz)
+
             #Capitulo 19: promedio
             if linea[25] == "S" or linea[25] == "T":
                 contador += 1
                 suma = suma + total
                 promedio_total = promedio_19(suma, contador)
+
                 """
                 print("\ncontador:", contador ,
                       "\nsuma:", suma ,
@@ -78,6 +101,12 @@ with open("tratamientos.txt", "r") as file:
             if linea[39] == "X":
                 porcentaje_39 = porcentaje_x(total)
                 total_39 = total + porcentaje_39
+
+                if mayor_mzx is None or mayor_mzx < total_39:
+                    mayor_mzx = total_39
+                    linea_mayor_mzx = linea
+
+                #print("MZX", mayor_mzx, linea_mayor_mzx)
                 """
                 print("\nx total MZ ", total_39 ,
                       "\nlinea x MZ" ,linea ,
@@ -128,6 +157,16 @@ with open("tratamientos.txt", "r") as file:
         print("LINEA MZ:",linea, "MZ monto extra =", monto_extra ,"MZ monto base =", monto_base_MZ, "numeral:",numeral)
         print("LINEA U:",linea, "U monto extra =", monto_extra ,"U monto base:", monto_base_U,"numeral:",numeral)
         """
+if mayor >= mayor_x and mayor >= mayor_mz and mayor >= mayor_mzx:
+    print("El mayor  es AL:", mayor, linea_mayor_AL)
+elif mayor_x >= mayor and mayor_x >= mayor_mz and mayor_x >= mayor_mzx:
+    print("El mayor  es X:", mayor_x, linea_mayor_X)
+elif mayor_mz >= mayor and mayor_mz >= mayor_x and mayor_mz >= mayor_mzx:
+    print("El mayor  es MZ:", mayor_mz, linea_mayor_mz)
+else:
+    print("El mayor  es MZX:", mayor_mzx, linea_mayor_mzx)
+
+
 
 
 """
