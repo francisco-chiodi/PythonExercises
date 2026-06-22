@@ -1,5 +1,6 @@
 suma = contador = promedio = tratamientos = 0
-counter_r2  = counter_r3 = counter_r4 = counter_r5 = counter_r6  = 0
+counter_r2  = counter_r3 = counter_r4 = counter_r5 = counter_r6 = 0
+r1 = r2 = r3 = r4 = r5 = r6 = r7 = 0
 mayor = None
 linea_mayor_AL = ""
 
@@ -31,8 +32,6 @@ monto_base_AL = monto_base_MZ = monto_base_U = monto_extra = 0
 
 for linea in m:
 
-
-
     if linea[0] == "#":
         monto_base_AL = int(linea[2:8])
         monto_base_MZ = int(linea[8:14])
@@ -42,19 +41,25 @@ for linea in m:
         continue
 
     tratamientos += 1
+    r1 = tratamientos
     letra_icd10 = linea[25]
 
     if letra_icd10 == "A":
         counter_r2 += 1
+        r2 = counter_r2
+        #print("A", linea)
     elif letra_icd10 == "B":
         counter_r3 += 1
+        r3 = counter_r3
     elif letra_icd10 == "C":
         counter_r4 += 1
+        r4 = counter_r4
     elif letra_icd10 == "D":
         counter_r5 += 1
+        r5 = counter_r5
     elif letra_icd10 == "P":
         counter_r6 += 1
-
+        r6 = counter_r6
 
     if "A" <= linea[25] <= "L":
         monto_extra = int(linea[31:38])
@@ -66,7 +71,7 @@ for linea in m:
         if mayor is None or mayor < total:
             mayor = total
             linea_mayor_AL = linea
-        print("AL",mayor , linea_mayor_AL)
+        #print("AL",mayor , linea_mayor_AL)
 
 
         if linea[39] == "X":
@@ -111,10 +116,12 @@ for linea in m:
             contador += 1
             suma = suma + total
             promedio_total = promedio_19(suma, contador)
-
+            r7 = promedio_total
+            """
             print("\ncontador:", contador,
                   "\nsuma:", suma,
                   "\npromedio", promedio_total)
+            """
 
         if linea[39] == "X":
             porcentaje_39 = porcentaje_x(total)
@@ -150,6 +157,7 @@ for linea in m:
         if linea[39] == "X":
             porcentaje_39 = porcentaje_x(total)
             total_39 = total + porcentaje_39
+
             """
                 print("\nx total U ", total_39 ,
                       "\nlinea x" ,linea ,
@@ -167,67 +175,34 @@ for linea in m:
         
             """
 
-
-            
-
-
 if mayor >= mayor_x and mayor >= mayor_mz and mayor >= mayor_mzx:
-    print("El mayor  es AL:", mayor, linea_mayor_AL)
+    r8 = linea_mayor_AL
+    r9 = mayor
+    #print("El mayor  es AL:", mayor, linea_mayor_AL)
 elif mayor_x >= mayor and mayor_x >= mayor_mz and mayor_x >= mayor_mzx:
-    print("El mayor  es X:", mayor_x, linea_mayor_X)
+    r8 = linea_mayor_X
+    r9 = mayor_x
+    #print("El mayor  es X:", mayor_x, linea_mayor_X)
 elif mayor_mz >= mayor and mayor_mz >= mayor_x and mayor_mz >= mayor_mzx:
-    print("El mayor  es MZ:", mayor_mz, linea_mayor_mz)
+    r8 = linea_mayor_mz
+    r9 = mayor_mz
+    #print("El mayor  es MZ:", mayor_mz, linea_mayor_mz)
 else:
-    print("El mayor  es MZX:", mayor_mzx, linea_mayor_mzx)
-
+    r8 = linea_mayor_mzx
+    r9 = mayor_mzx
+    #print("El mayor  es MZX:", mayor_mzx, linea_mayor_mzx)
 
 texto = m.read()
 m.close()
 
-"""
+print('(r1) - Cantidad de tratamientos cargados:', r1 )
+print('(r2) - Cantidad de tratamientos "A":', r2)
+print('(r3) - Cantidad de tratamientos "B":', r3)
+print('(r4) - Cantidad de tratamientos "C":', r4)
+print('(r5) - Cantidad de tratamientos "E":', r5)
+print('(r6) - Cantidad de tratamientos "P":', r6)
+print('(r7) – Importe final promedio (capítulo 19):', r7)
+print('(r8) – Paciente (no tipo "U") que pagó el mayor importe final:', r8)
+print('(r9) - Mayor importe pagado por ese paciente):', r9)
+#print('(r10)- Porcentaje de tratamientos de alta complejidad con coste mayor al promedio:', r10)
 
-S00–S09   Traumatismos de la cabeza
-
-S10–S19   Traumatismos del cuello
-
-S20–S29   Traumatismos del tórax
-
-S30–S39   Traumatismos del abdomen, de la región lumbosacra, de la columna   lumbar y de la pelvis
-
-S40–S49   Traumatismos del hombro y del brazo
-
-S50–S59   Traumatismos del antebrazo y del codo
-
-S60–S69   Traumatismos de la muñeca y de la mano
-
-S70–S79   Traumatismos de la cadera y del muslo
-
-S80–S89   Traumatismos de la rodilla y de la pierna
-
-S90–S99   Traumatismos del tobillo y del pie
-
-T00–T07   Traumatismos que afectan múltiples regiones del cuerpo
-
-T08–T14   Traumatismos de parte no especificada del tronco, miembro o región   del cuerpo
-
-T15–T19   Efectos de cuerpos extraños que penetran por orificios naturales
-
-T20–T32   Quemaduras y corrosiones
-
-T33–T35   Congelamiento
-
-T36–T50   Envenenamiento por drogas, medicamentos y sustancias biológicas
-
-T51–T65   Efectos tóxicos de sustancias de procedencia principalmente no medicinal
-
-T66–T78   Otros efectos y los no especificados de causas externas
-
-T79          Algunas complicaciones precoces de traumatismos
-
-T80–T88   Complicaciones de la atención médica y quirúrgica, no clasificadas en otra parte
-
-T90–T98   Secuelas de traumatismos, de envenenamientos y de otras consecuencias de
-causas externas
-
-Este capítulo utiliza la sección 
-"""

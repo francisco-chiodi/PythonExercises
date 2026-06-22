@@ -11,8 +11,54 @@ indicar el mayor de ellos cuyo ultimo digito sea mayor o igual a 5 pero menor o 
 
 indicar cuantos son pares menores a 15000
 
+"""
+"""
+S00–S09   Traumatismos de la cabeza
 
+S10–S19   Traumatismos del cuello
 
+S20–S29   Traumatismos del tórax
+
+S30–S39   Traumatismos del abdomen, de la región lumbosacra, de la columna   lumbar y de la pelvis
+
+S40–S49   Traumatismos del hombro y del brazo
+
+S50–S59   Traumatismos del antebrazo y del codo
+
+S60–S69   Traumatismos de la muñeca y de la mano
+
+S70–S79   Traumatismos de la cadera y del muslo
+
+S80–S89   Traumatismos de la rodilla y de la pierna
+
+S90–S99   Traumatismos del tobillo y del pie
+
+T00–T07   Traumatismos que afectan múltiples regiones del cuerpo
+
+T08–T14   Traumatismos de parte no especificada del tronco, miembro o región   del cuerpo
+
+T15–T19   Efectos de cuerpos extraños que penetran por orificios naturales
+
+T20–T32   Quemaduras y corrosiones
+
+T33–T35   Congelamiento
+
+T36–T50   Envenenamiento por drogas, medicamentos y sustancias biológicas
+
+T51–T65   Efectos tóxicos de sustancias de procedencia principalmente no medicinal
+
+T66–T78   Otros efectos y los no especificados de causas externas
+
+T79          Algunas complicaciones precoces de traumatismos
+
+T80–T88   Complicaciones de la atención médica y quirúrgica, no clasificadas en otra parte
+
+T90–T98   Secuelas de traumatismos, de envenenamientos y de otras consecuencias de
+causas externas
+
+Este capítulo utiliza la sección 
+"""
+"""
 """
 
 """
