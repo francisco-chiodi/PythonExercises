@@ -64,38 +64,57 @@ en lugar de 1beta9 o en lugar de 9sigmaZ." hay solo una palabra que cumple: "1al
 """
 counter_odd = counter_minus = counter_both = w = c = 0
 
-minus = False
-odds = False
+have_odd = False
+have_minus = False
+new_word = False
 
 def is_odd(car):
-    if car in ("1","3","5","7","9"):
-        print(car)
+    if new_word is True and car in ("1","3","5","7","9"):
         return True
     else:
         return False
+
+    """
+    Este if se ejecuta dentro del bucle de cada carácter. Imagina que estás en la palabra "1alfaxy":
+En la "a": have_odd es True y have_minus se vuelve True. counter_both suma 1.
+En la "l": Ambos siguen siendo True. counter_both suma 2.
+En la "f": Ambos siguen siendo True. counter_both suma 3.
+    """
 
 def is_minus(car):
     if "a" <= car <= "z":
-        print(car)
         return True
     else:
         return False
-
 
 for car in texto:
 
 #odd digit , no lower case
-    if  car != " " and car !=".":
+    if  car != " " and car !=" .":
         c +=1
 
         if is_odd(car):
             have_odd = True
-            counter_odd +1
+            counter_odd +=1
 
-        if minus is True and odds is True:
+        if is_minus(car):
+            have_minus = True
+            counter_minus +=1
+
+        if have_odd is True and have_minus is True:
             counter_both += 1
+            print(counter_both)
 
-    if car == " " or car == ".":
+            have_odd = False
+            have_minus = False
+        new_word = False
+
+#words
+    if car == " " or car == " .":
+
+        have_odd = False
+        have_minus = False
+        new_word = True
         w +=1
 
 
