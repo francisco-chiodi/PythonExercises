@@ -110,14 +110,12 @@ for car in texto:
         new_word = False
 
 #words
-    if car == " " or car == " .":
 
+    if car == " " or car == " .":
         have_odd = False
         have_minus = False
         new_word = True
         w +=1
-
-
 
 
 print("counter odd is:", counter_odd)
