@@ -14,13 +14,28 @@ vocales que consonantes. Por ejemplo, en el texto "Ahora esa tarea resulta impos
 palabras que cumplen: "Ahora", "esa" y "tarea". Como hay siete palabras en total en el texto, el porcentaje
 entero pedido es del 42 por ciento (aclaración: en el cálculo del porcentaje haga primero la multiplicación
 y luego la división).
+4.Determinar cuántas palabras incluyen la expresión "tu" (con cualquiera de sus letras en minúscula o
+mayúscula) pero de tal forma que la palabra no tenga además ninguna ninguna "b" (minúscula o
+mayúscula) ni ningún dígito. Por ejemplo, en el texto: "Los tucumanos tumbaron al ritmo de 2tu y
+quedaron en el atium." hay una palabra que cumple: "tucumanos". La palabra "tumbaron" no cuenta
+porque si bien tiene la expresión "tu", tiene también una "b". La palabra "2tu" tampoco cuenta porque si
+bien tiene "tu", también tiene un dígito. Y "atium" no cuenta porque no tiene "tu".
 """
+
+
+def percentage(wc,quantity):
+    return (quantity * 100) // wc
+
+def vocal(char):
+    return char in "aeiouáéíóúAEIOUÁÉÍÓÚ"
 
 def digit(char):
     return "0" <= char <= "9"
+
 def pair(char):
     if digit(char):
         return int(char) % 2 == 0
+
     return False
 def is_even(char):
     return char in "02468"
@@ -29,7 +44,7 @@ def principal():
     m = open("entrada.txt")
     text = m.read()
     m.close()
-    lc = wc = r1 = l = e = l4 = 0
+    lc = wc = r1 = l = e = vc = cc = quantity = tu = 0
     valid = False
     lcon = None
     for char in text:
@@ -41,10 +56,23 @@ def principal():
                 if lc > 3:
                     if lcon is None or lcon > lc:
                         lcon = lc
+                if vc > cc:
+                    quantity += 1
+
+                if valid == True:
+                    tu += 1
+
+
             valid = False
+            print("cc:",cc)
+            print("cv:",vc)
+            print("quantity",quantity)
+
             lc = 0
             l = 0
             e = 0
+            vc = 0
+            cc = 0
 
         else: #letters
             lc += 1
@@ -53,13 +81,22 @@ def principal():
                      l += 1
                 if is_even(char):
                     e += 1
+                if char.isalpha():
+                    if vocal(char):
+                        vc += 1
+                    if not vocal(char):
+                        cc += 1
+                if char in "tu" and char not in "b":
+                    valid = True
+                    print(char)
 
 
-
-
+    r3 = percentage(wc, quantity)
 
     print("primer punto",r1)
     print("segundo punto",lcon)
+    print("tercer punto",r3)
+    print("cuarto punto",tu)
 if __name__ == "__main__":
     principal()
 
