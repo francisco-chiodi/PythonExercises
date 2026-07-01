@@ -46,6 +46,9 @@ def principal():
     m.close()
     lc = wc = r1 = l = e = vc = cc = quantity = tu = 0
     valid = False
+    t_valid = False
+    u_valid = False
+    b_valid = False
     lcon = None
     for char in text:
         if char in " .": #words
@@ -59,14 +62,12 @@ def principal():
                 if vc > cc:
                     quantity += 1
 
-                if valid == True:
+                if u_valid == True and b_valid == False:
                     tu += 1
 
-
-            valid = False
-            print("cc:",cc)
-            print("cv:",vc)
-            print("quantity",quantity)
+            t_valid = False
+            u_valid = False
+            b_valid = False
 
             lc = 0
             l = 0
@@ -86,10 +87,17 @@ def principal():
                         vc += 1
                     if not vocal(char):
                         cc += 1
-                if char in "tu" and char not in "b":
-                    valid = True
-                    print(char)
+                    if char in "tT":
+                        t_valid = True
 
+                    else:
+                        if t_valid and char in "uúUÚ":
+                            u_valid = True
+                        t_valid = False
+
+
+                if char in "bB" or digit(char):
+                    b_valid = True
 
     r3 = percentage(wc, quantity)
 
