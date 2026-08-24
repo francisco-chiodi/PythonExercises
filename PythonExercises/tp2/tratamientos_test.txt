@@ -1,0 +1,185 @@
+Ana Robles               M71.102248729 
+Juan Iglesias            U39.551709072 
+Ana Iglesias             X38.548201041 X
+Lucas Salinas            T00.479801029 X
+Luis Freire              Z55.466681986 X
+Ana Iglesias             S35.198148137 X
+Maria Robles             A39.481466997 X
+Abril Salinas            I50.22899406  
+Luis Tomalino            N61.365148054 
+Juan Suarez              A90.2846792   
+Maria Freire             X91.588122243 
+Maria Giacomelli         W34.367172409 
+Pedro Freire             W51.381848372 
+Alejandro Giacomelli     R52.5640596   
+Ana Suarez               S20.406417355 
+Pedro Robles             S82.441926308 
+Maria Salinas            O05.497546555 
+# 28672 294123146225
+Laura Freire             N77.386153140 
+Juan Suarez              K10.543019071 
+Sara Suarez              R92.2 4150184 X
+Lucas Freire             D95.578268910 X
+Alejandro Iglesias       M94.414204528 
+Juan Tomalino            L76.416098493 X
+# 205149200174105111
+Luis Freire              M44.467020298 
+# 174497229944130688
+Laura Freire             P60.347197202 
+Lucas Salinas            X95.568526857 
+Pedro Tomalino           O66.1 4608530 X
+Alejandro Freire         D51.557972840 
+Tomas Tomalino           C90.19915655  
+Laura Robles             U89.282858883 X
+Laura Tomalino           N76.192346694 X
+Luis Tomalino            S15.183917679 
+Laura Tomalino           U68.7 9707752 
+Juan Suarez              X72.497280596 X
+Pedro Freire             U87.3 5283325 
+# 212832134638263866
+Alejandro Iglesias       O34.455006375 X
+Sara Freire              T19.344638264 
+Alejandro Suarez         G97.336573257 X
+Juan Suarez              S24.5 8058011 
+# 172193164960289052
+Laura Robles             T43.391154936 
+Abril Robles             K45.413453710 
+Pedro Robles             T76.588958113 X
+Juan Robles              G33.12981371  
+Abril Tomalino           Y57.581929677 
+Pedro Robles             X74.389142864 
+Luis Robles              U35.102564724 
+Juan Tomalino            V72.282422463 X
+Maria Freire             L45.296066154 
+Pedro Iglesias           C49.1 9470407 
+Tomas Tomalino           J25.119497649 
+Maria Tomalino           V01.445368803 X
+Abril Iglesias           V61.499913277 X
+Lucas Salinas            T90.8 6191841 
+Pedro Tomalino           N01.112829434 
+Sara Tomalino            N85.9 3721687 
+Laura Giacomelli         F32.222669001 
+Sara Giacomelli          Q26.1 6512934 
+Juan Robles              P72.5 6039193 
+Maria Giacomelli         R71.163865567 
+Pedro Robles             S52.59872873  X
+Sara Giacomelli          X44.356603320 
+Ana Freire               Q02.22837123  
+Sara Robles              F13.4 3851562 
+# 35195 244247200757
+Tomas Freire             C21.583975791 
+Maria Giacomelli         U22.385323756 X
+Sara Iglesias            Q21.552020062 X
+Alejandro Freire         S78.139370575 
+Abril Tomalino           K71.243920781 
+Abril Robles             Z82.161121290 
+# 70795 28116 144314
+Luis Tomalino            J14.2741191   
+Ana Freire               R10.326276118 
+Laura Freire             K34.381512277 
+Lucas Suarez             C48.1624781   
+Juan Robles              Y45.171075926 
+Juan Robles              H03.279762159 
+Luis Suarez              L59.452871964 
+# 16934812183941434 
+Laura Salinas            D54.556246314 X
+Alejandro Freire         H87.339569150 
+Ana Robles               Q97.6 4079874 
+Maria Robles             D66.111723557 X
+Laura Giacomelli         V78.3 3441452 X
+# 161413221343272579
+Alejandro Tomalino       C64.139162505 
+Laura Freire             Q00.581285251 
+Maria Suarez             N66.431366895 
+# 18047020091825071 
+Laura Giacomelli         F23.153567443 X
+Alejandro Iglesias       J86.551423126 
+Ana Freire               G15.271939878 X
+Maria Freire             M28.1 2016892 
+Laura Freire             C52.109440911 
+Juan Robles              U10.302927013 
+Abril Salinas            M45.281036993 
+Abril Freire             F42.141905780 X
+Sara Suarez              Y93.32837449  X
+# 260721202030222417
+Juan Suarez              V34.3 3265078 X
+# 24133336289 234743
+Juan Tomalino            T11.314935502 
+Sara Giacomelli          E25.246090433 
+Alejandro Suarez         T99.334429497 
+Lucas Iglesias           X01.478350049 
+Luis Suarez              H78.452397777 
+Lucas Freire             W84.252701242 
+Lucas Suarez             T36.5 4584669 
+Sara Giacomelli          Q15.517927628 
+Juan Iglesias            X48.264321176 
+Abril Tomalino           O07.242117583 X
+# 25102080619 251641
+Pedro Tomalino           E60.7 5850451 X
+# 187741281857272412
+Ana Giacomelli           Y34.285852438 
+Tomas Salinas            I48.579524027 
+Lucas Robles             R43.54372076  
+Pedro Robles             O77.8 5404218 
+Alejandro Suarez         Y53.104788514 X
+Lucas Iglesias           D60.116886550 
+Ana Iglesias             T99.549824159 
+Maria Salinas            E46.569437901 
+Lucas Suarez             C19.241184434 X
+Ana Salinas              H39.286340756 X
+Lucas Freire             P59.6 9202689 
+Luis Suarez              Z73.353183569 
+Maria Freire             S08.9 3850742 
+Abril Giacomelli         G29.497470744 
+Laura Suarez             B72.403274913 
+Alejandro Tomalino       I19.543837135 
+Maria Giacomelli         R67.134049364 
+Ana Freire               Y87.27215950  
+# 27870 62497 29659 
+Maria Salinas            I79.379939288 
+Maria Tomalino           L18.564233399 
+Sara Freire              H76.554380102 X
+Alejandro Robles         P86.487611318 
+Tomas Freire             L34.236254615 
+Juan Robles              L43.461676350 
+Abril Giacomelli         X39.35899348  
+Abril Freire             B41.359148605 
+# 25380637490 138915
+Laura Freire             S43.154077197 
+# 20891428482 58439 
+Laura Robles             B92.1 1927656 
+Juan Salinas             E55.7 6614743 
+Alejandro Iglesias       L56.5 5119377 
+Maria Freire             W22.364545000 X
+Tomas Suarez             Q55.262370811 X
+Pedro Giacomelli         G38.511168011 X
+Lucas Suarez             I65.462865143 
+Abril Freire             P29.476466179 
+Tomas Iglesias           H17.467038097 
+Ana Tomalino             J17.435131765 
+Laura Salinas            X55.491204705 
+Tomas Salinas            N73.322163387 X
+Ana Giacomelli           N79.301815433 
+Alejandro Robles         Z83.395527817 X
+Luis Tomalino            N52.504941858 
+Abril Giacomelli         L18.5 5252848 
+Juan Salinas             G77.5 4040958 X
+Lucas Freire             U29.452323585 
+Lucas Suarez             G98.9 2574502 
+Tomas Robles             C33.483134699 
+Lucas Iglesias           W53.275614341 X
+Laura Salinas            I69.445484156 
+Maria Suarez             U51.348545861 
+Ana Suarez               M79.119011333 
+Lucas Robles             E99.1 2770110 
+Alejandro Giacomelli     D35.33725336  
+Alejandro Robles         D21.106497144 X
+Lucas Tomalino           F61.478556183 
+Laura Tomalino           K97.327310611 
+# 25900844045 261503
+Alejandro Freire         E82.341666404 
+# 17791616623541960 
+Lucas Freire             D80.342798215 
+Sara Salinas             Y22.429492783 
+Laura Iglesias           C15.4 8659879 
+Sara Suarez              G24.198826371 
