@@ -50,3 +50,67 @@ for i in range(len(numbers)): #get the total number elements of the list. range 
  Cargar por teclado un arreglo de n componentes y multiplicarlo por el valor k
 que también se ingresa por teclado.
 """
+"""
+components =  int(input("components: " ))
+
+components_array = []
+for i in range (components + 1):
+    components_array.append(components)
+
+multiply =  int(input("multiplycation: " ))
+
+result = components_array * multiply
+print("the answer is" , result)
+"""
+"""
+Se ha solicitado un programa que permita cargar las precipitaciones promedio en cada 
+mes del país, en base a esos datos armar un menú de opciones que permita:
+Determinar el promedio anual de lluvias
+Determinar el promedio de lluvias para un determinado trimestre
+Determinar el mes más seco del año
+Determinar los meses del año en los que llovió más que el promedios de lluvia de todo el año.
+"""
+def average(total,counter):
+    return total//counter
+
+months = [0,1,2,3,4,5,6,7,8,9,10,11]
+
+total_rains = []
+presipitations = []
+counter = 0 
+total_rains = 0 
+
+for i in range (len(months)):
+
+    counter += 1
+    rain = int(input("rain this month: "))
+    total_rains += rain
+
+    presipitations.append(rain)
+print("average: ", average(total_rains,counter))
+
+select = int(input("trimester selection: "))
+if select == 1:
+    trimester_data = presipitations[0:3]
+    print("first trimester: ", average(total_rains,counter))
+elif select == 2:
+    trimester_data = presipitations[3:6]
+    print("second trimester: ", average(total_rains,counter))
+elif select == 3:
+    trimester_data = presipitations[6:9]
+    print("third trimester: ", average(total_rains,counter) )
+elif select == 4:
+    trimester_data = presipitations[9:12]
+    print("fourth trimester: ", average(total_rains,counter) )
+else:
+    trimester_data = []
+
+if trimester_data:
+    total_trimester = 0 
+    for rain in trimester_data:
+        total_trimester += rain    
+
+print("promedio del trimestre ", average(total_trimester, len(trimester_data)))
+
+
+
