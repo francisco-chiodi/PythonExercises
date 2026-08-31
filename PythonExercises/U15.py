@@ -82,7 +82,7 @@ total_rains = 0
 
 for i in range (len(months)):
 
-    counter += 1
+    counter += 1 
     rain = int(input("rain this month: "))
     total_rains += rain
 
@@ -92,16 +92,12 @@ print("average: ", average(total_rains,counter))
 select = int(input("trimester selection: "))
 if select == 1:
     trimester_data = presipitations[0:3]
-    print("first trimester: ", average(total_rains,counter))
 elif select == 2:
     trimester_data = presipitations[3:6]
-    print("second trimester: ", average(total_rains,counter))
 elif select == 3:
     trimester_data = presipitations[6:9]
-    print("third trimester: ", average(total_rains,counter) )
 elif select == 4:
     trimester_data = presipitations[9:12]
-    print("fourth trimester: ", average(total_rains,counter) )
 else:
     trimester_data = []
 
@@ -110,7 +106,23 @@ if trimester_data:
     for rain in trimester_data:
         total_trimester += rain    
 
-print("promedio del trimestre ", average(total_trimester, len(trimester_data)))
+    print("promedio del trimestre ", average(total_trimester, len(trimester_data)))
 
+#drier month 
 
+drier_rain = presipitations[0]
+drier_month_index = 0 
 
+for i in range(len(presipitations)):
+    if presipitations[i] < drier_rain:
+        drier_rain = presipitations[i]
+        drier_month_index = i 
+print("the driest month was:", drier_month_index +1, "with" , drier_rain ,"of rain")
+
+#rains above the anual promedy
+
+annual_average = average(total_rains,counter)
+print("months above anual promedy: ", annual_average )
+for i in range(len(presipitations)):
+    if presipitations[i] > annual_average:
+        print("month" ,i + 1, "with" ,presipitations[i], "of rain")
