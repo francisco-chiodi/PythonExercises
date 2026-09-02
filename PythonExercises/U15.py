@@ -135,6 +135,8 @@ Informe cuántas veces se repite en el vector el último número ingresado
 Genere un nuevo vector, conteniendo sólo los elementos menores al primer valor ingresado.
 """
 
+"""
+
 #ask for the elements quantity and load them.
 n = int(input("quantity of elements: "))
 v = []
@@ -164,6 +166,52 @@ print("the last number " , last , "repeated", last_counter , "times" )
 
 print(f"El primer número fue: {first}")
 print(f"Nuevo vector con los menores al primero: {new_vector}")
+
+"""
+"""
+
+3. Busqueda de primos
+Desarrollar un programa que permita generar un arreglo de n elementos. A partir de este arreglo, se pide lo siguiente:
+
+Generar un segundo arreglo con todos los números primos contenidos en el arreglo original.
+Determinar el promedio de los números del arreglo generado en el punto 1.
+
+"""
+
+def is_prime(numbers):
+    odds = []
+    for num in numbers:
+
+        if num // num != num or num != num:
+            odds.append(num)
+    return odds
+
+"""
+def is_prime_number(num):
+    if num < 2:
+        return False  # Los números menores a 2 no son primos
+    
+    # Probamos si es divisible por algún número desde 2 hasta num - 1
+    for i in range(2, num):
+        if num % i == 0:  # Si el resto es 0, tiene otro divisor -> NO es primo
+            return False
+            
+    return True  # Si no se pudo dividir por ninguno, SÍ es primo
+
+"""
+    
+
+n = int(input("input array size: "))
+
+array = []
+
+
+for i in array:
+    numbers = int(input( "elements" ))
+
+    array.appendd(numbers)
+
+
 
 
 
