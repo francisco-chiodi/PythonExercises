@@ -70,6 +70,7 @@ Determinar el promedio de lluvias para un determinado trimestre
 Determinar el mes más seco del año
 Determinar los meses del año en los que llovió más que el promedios de lluvia de todo el año.
 """
+"""
 def average(total,counter):
     return total//counter
 
@@ -126,3 +127,44 @@ print("months above anual promedy: ", annual_average )
 for i in range(len(presipitations)):
     if presipitations[i] > annual_average:
         print("month" ,i + 1, "with" ,presipitations[i], "of rain")
+
+2. Último y Primero
+Desarrollar un programa que permita cargar por teclado un vector de n elementos y luego:
+
+Informe cuántas veces se repite en el vector el último número ingresado
+Genere un nuevo vector, conteniendo sólo los elementos menores al primer valor ingresado.
+"""
+
+#ask for the elements quantity and load them.
+n = int(input("quantity of elements: "))
+v = []
+
+#ask for vector 
+
+for i in range(n):
+    num = int(input("load number: "))
+    v.append(num)
+
+#identify last and first number
+
+first = v[0]
+last = v[-1]
+
+last_counter = 0
+for element in v:
+    if element == last:
+        last_counter += 1
+
+new_vector = []
+
+for element in v:
+    if element < first:
+        new_vector.append(element)
+print("the last number " , last , "repeated", last_counter , "times" )
+
+print(f"El primer número fue: {first}")
+print(f"Nuevo vector con los menores al primero: {new_vector}")
+
+
+
+
