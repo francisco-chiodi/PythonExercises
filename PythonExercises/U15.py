@@ -177,7 +177,7 @@ Generar un segundo arreglo con todos los números primos contenidos en el arregl
 Determinar el promedio de los números del arreglo generado en el punto 1.
 
 """
-
+"""
 def is_prime(numbers):
     odds = []
     for num in numbers:
@@ -185,7 +185,7 @@ def is_prime(numbers):
         if num // num != num or num != num:
             odds.append(num)
     return odds
-
+"""
 """
 def is_prime_number(num):
     if num < 2:
@@ -200,7 +200,7 @@ def is_prime_number(num):
 
 """
     
-
+"""
 n = int(input("input array size: "))
 
 array = []
@@ -212,7 +212,11 @@ for i in array:
     array.appendd(numbers)
 
 
+"""
 
+import myfunctions
 
-
-
+MESES = (
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+)
