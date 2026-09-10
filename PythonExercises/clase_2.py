@@ -8,6 +8,7 @@ class Ticket:
 
 
     def __str__(self):
+        r = ""
         r = "{:<20}".format("Flycode: " + str(self.flycode))
         r += "{:<35}".format(" - passager id: " + str(self.passager_id))
         r += "{:<12}".format(" - destination: " + str(self.destination))
