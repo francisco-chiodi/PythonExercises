@@ -18,6 +18,7 @@ del listado, indique cuántos objetos se mostraron.
 
 c. Determinar y mostrar la cantidad de juicios que hay por cada posible tipo (15 contadores en un vector de
 conteo). Mostrar sólo aquellos contadores que sean mayores a una cantidad c ingresada por teclado.
+
 d. Determinar si existe un juicio cuyo código de expediente sea igual a cod. Si existe alguno, modificar el monto
 de honorarios de ese objeto tomando el nuevo valor por teclado, y mostrar los datos de ese juicio incluyendo
 esa modificación. Si no existe, informar con un mensaje. Debe mostrar los datos del primero que encuentre, y
@@ -56,18 +57,70 @@ def show(v):
     number = len(v)
     for i in range(number-1):
         for j in range(i+1,number):
-            if v[i].total > v[j].total:
+            if v[i].des > v[j].des:
                 v[i],v[j] = v[j],v[i]
     mon = int(input("ingrese el filtro de monto minimo a buscar: "))
+
     counter = 0
+    print("Listado de juicios con honorarios mayores a", mon, ":")
     for k in range(number):
-        if k > mon:
+        if v[k].total > mon: #Compara el atributo del objeto en la posición 'k' con el valor 'mon'
             counter += 1
-            print("los casos por caratula con montos mayores a ",mon, "son: ", v[i].des +1 )
-            print("se mostraron",counter,"objetos")
+            print(v[k])
+    print("se mostraron",counter,"objetos")
 
 
+"""
+c. Determinar y mostrar la cantidad de juicios que hay por cada posible tipo (15 contadores en un vector de
+conteo). Mostrar sólo aquellos contadores que sean mayores a una cantidad c ingresada por teclado.
+"""
 
+
+def count(v):
+    number = len(v)
+    counter_type = 15 * [0]
+
+    # 1. Contar los juicios por tipo
+    for i in range(number):
+        index = v[i].type - 1
+        counter_type[index] += 1
+
+    # 2. Pedir por teclado la cantidad mínima 'c' a superar
+    c = int(input("Ingrese la cantidad mínima 'c' a superar para filtrar: "))
+
+    print("Tipos de juicios con más de", c, "casos:")
+
+    # 3. Filtrar usando 'c' y mostrar la casilla correspondiente
+    for k in range(15):
+        if counter_type[k] > c:  # Compara el conteo contra 'c'
+            print("El tipo de juicio", k + 1, "tiene una cantidad de:", counter_type[k])
+
+"""Determinar si existe un juicio cuyo código de expediente sea igual a cod. Si existe alguno, modificar el monto
+de honorarios de ese objeto tomando el nuevo valor por teclado, y mostrar los datos de ese juicio incluyendo
+esa modificación. Si no existe, informar con un mensaje. Debe mostrar los datos del primero que encuentre, y
+detener la búsqueda en el primero que encuentre (sin importar si hay más de un objeto que cumpla el criterio
+pedido)"""
+
+
+def search(v):
+    number = len(v)
+    cod = int(input("Ingrese codigo de expediente a buscar: "))
+
+    for i in range(number):
+        if v[i].exp_code == cod:
+            print("Encontrado. Datos actuales:")
+            print(v[i])
+
+            # Pedimos el nuevo valor por teclado y actualizamos el honorario/monto
+            new_amount = float(input("Ingrese el nuevo monto de honorarios: "))
+            v[i].total = new_amount
+
+            print("Datos actualizados:")
+            print(v[i])
+            return  # Corta la función y detiene la búsqueda inmediatamente
+
+    # Si terminó todo el for y nunca entró al return:
+    print("No se encontro un juicio con ese codigo de expediente.")
 
 
 def principal():
@@ -84,7 +137,23 @@ def principal():
             v = charge()
             print("arreglo cargado exitosamente")
         elif option == 2:
-            v = show(v)
+            if v:
+                show(v)
+            else:
+                print("el vector no fue cargado")
+
+        elif option ==3:
+            if v:
+                count(v)
+            else: print("el vector no fue cargado")
+
+        elif option == 4:
+            if v:
+                search(v)
+            else: print("el vector no fue cargado")
+
+        elif option == 5:
+            print("fin del programa")
 
 
 
