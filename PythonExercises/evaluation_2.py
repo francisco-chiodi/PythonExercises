@@ -16,7 +16,7 @@ Se desea almacenar la información referida a los n tickets en un arreglo de obj
 de opciones y que posea como mínimo dos módulos, que permita gestionar las siguientes tareas:
 
 a. Cargar el arreglo con los datos de los n tickets. Valide o asegure que los datos cargados sean correctos. Puede
-hacer la carga en forma manual, o puede generar los datos en forma automática.
+hacer la carga en forma manual, o puede generar los datos en forma automática.3
 
 b. Mostrar los datos de todos los tickets cuyo número de asiento sea mayor a un valor num que se carga por
 teclado, ordenados por código de vuelo de menor a mayor. Los tickets se deben mostrar a razón de uno por

@@ -46,8 +46,8 @@ def charge():
         type = random.randint(1,15)
         name = random.choice(name) + random.choice(last_name)
         total =round(random.uniform(30000,60000),2)
-        v[i] = class_4.Service(exp_code,des,type,total)
-        return(v)
+        v[i] = class_4.Service(exp_code,des,name,type,total)
+    return(v)
 
 """b. Mostrar datos de todos los juicios cuyo monto de honorarios sea mayor a mon (que se carga por teclado), en
 un listado ordenado de menor a mayor según la descripción o carátula, a razón de un juicio por línea. Al final
