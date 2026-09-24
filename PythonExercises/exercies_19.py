@@ -7,7 +7,6 @@ El Comité Argentino de Atletismo llevo a cabo una prueba atlética de Triatlón
   (todo en minutos para simplificar los cálculos).
 
 Usted debe:
-
 Informar tiempo promedio de cada competidor
 Determinar el podio, indicando el nombre del primer, segundo y tercer mejor promedio
 """
