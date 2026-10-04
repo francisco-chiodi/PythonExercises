@@ -9,7 +9,6 @@ válidos.
 
 El arreglo debe generarse en forma ordenada por numero.
 
-
 3 - Generar un archivo binario con todas las líneas donde la cantidad de minutos consumidos superen un valor X ingresado por teclado.
 Muestre dicho archivo a razón de una registro a la vez y al final indique que porcentaje representan las líneas del plan Y ingresado
 por parámetro sobre el total de líneas del archivo.
@@ -43,7 +42,7 @@ Una empresa dedicada a la venta de líneas para celulares nos pidió un programa
 def charge(v):
     n = validate()
     v = n * [None]
-    nombres = ("cami","juli","fran","lain","juan","mica","anahi","sofi","loveher","kurt","kira","freeman")
+    nombres = ("cami","juli","fran","lain","juan","mica","anahi","sofi","ikawura","kurt","kira","freeman")
     for i in range(len(v)):
         num = random.randint(1000000,9000000)
         name = random.choice(nombres)
@@ -55,13 +54,13 @@ def charge(v):
 
 def show(v):
     n = len(v)
-    for i in range(n - 1):
-        for j in range(i+1,n):
+    for i in range(n - 1): #tine el primero
+        for j in range(i+1,n): #tiene el siguiente
             if v[i].num > v[j].num:
                 v[i],v[j] = v[j],v[i]
 
-
         print(v[i])
+    return v
 
 
 def main():

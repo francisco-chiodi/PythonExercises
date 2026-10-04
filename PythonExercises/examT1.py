@@ -42,9 +42,16 @@ mayor según la descripción de los empleos. Al final del listado indique la sum
 los empleos que se mostraron.
 """
 
+"""
+3. Determinar la cantidad de empleos que hay en el arreglo por cada tipo de empleo posible (40 contadores en
+total en un vector de conteo). Muestre solo los valores de los contadores cuyos valores finales sean mayores a
+cero.
+"""
+
 def show(v):
     n = len(v)
     total = 0
+    count = 40 *[0]
     for i in range(n-1):
         for j in range(i+1, n):
             if v[i].des > v[j].des:
@@ -53,8 +60,22 @@ def show(v):
     for i in range(n):
         print(v[i])
         total += v[i].total
+        index = v[i].types -1
+        count[index] +=1
+
+
+            print("contadores mayores a 0: ",v[i].types)
+
+
+
+
 
     print("la suma del total de los sueldos es ", total)
+
+
+
+
+
 
 
 
