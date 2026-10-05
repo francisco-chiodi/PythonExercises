@@ -11,6 +11,9 @@ class Tratamiento:
     def __str__(self):
         return f'DNI: {self.dni} - Nombre: {self.nombre} - Apellido: {self.apellido} - CODICD10: {self.cod_icd10} - Monto: {self.monto_base} - Complejidad: {self.alta_complejidad} - ID Algoritmo: {self.id_algoritmo}'
 
+
+#1
+
     def calcular_monto_final(self):
        
         letra, clasificacion, porcentaje_icd10 = procesar_codigo_icd10(self.cod_icd10)
