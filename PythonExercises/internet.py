@@ -122,7 +122,7 @@ def gen_archive(v,x,arch_name="facturas.dat"):
 
 #mostrar archivo
 def show_add(arch_name = "facturas.dat"):
-    if not os.path.exist(arch_name):
+    if not os.path.exists(arch_name):
         print("El archivo no existe gordo")
         return
     """
@@ -133,7 +133,7 @@ def show_add(arch_name = "facturas.dat"):
       evitando errores de lectura al intentar leer más allá de los datos existentes.
      """
     m = open(arch_name, "rb") #read binary
-    tam = os.path.getsize #consulta al sistema operativo cuanto pesa el archivo binario guardado en disco y lo guarda en tam
+    tam = os.path.getsize(arch_name) #consulta al sistema operativo cuanto pesa el archivo binario guardado en disco y lo guarda en tam
     #os es un modulo nativo de python que permite interactual directamente con el sistema operativo de la computadora.
     if tam == 0:
         print("archivo vacio, ninguna factura cumplio las condiciones.")
