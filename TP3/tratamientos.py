@@ -11,9 +11,6 @@ class Tratamiento:
     def __str__(self):
         return f'DNI: {self.dni} - Nombre: {self.nombre} - Apellido: {self.apellido} - CODICD10: {self.cod_icd10} - Monto: {self.monto_base} - Complejidad: {self.alta_complejidad} - ID Algoritmo: {self.id_algoritmo}'
 
-
-#1
-
     def calcular_monto_final(self):
        
         letra, clasificacion, porcentaje_icd10 = procesar_codigo_icd10(self.cod_icd10)
@@ -51,7 +48,7 @@ class Tratamiento:
             if 'A' <= letra <= 'L':
                 monto_extra += 20000
             elif 'M' <= letra <= 'P':
-                monto_extra += 15000 + (5000 * clasificacion) # Ojo: la consigna dice bloque (clasificación), no porcentaje
+                monto_extra += 15000 + (5000 * clasificacion)
             else:
                 monto_extra += self.monto_base * 0.10
 
@@ -61,7 +58,17 @@ class Tratamiento:
             monto_final = self.monto_base + monto_extra
             
         else:
-            monto_final = self.monto_base + porcentaje_extra_normal
+            monto_final = self.monto_base + 25000
+
+            if 'A' <= letra <= 'L':
+                monto_final += 25000
+            elif 'M' <= letra <= 'Z' and letra != 'U':
+                monto_final += 40000
+            elif letra == 'U':
+                monto_final += 100000
+
+            monto_final += (monto_final * porcentaje_icd10) / 100
+
             if self.alta_complejidad == 'A':
                 monto_final += (monto_final * 5) / 100
 

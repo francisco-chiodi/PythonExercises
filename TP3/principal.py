@@ -1,20 +1,24 @@
 import os 
 import tratamientos
 
-DIR_ACTUAL = os.path.dirname(os.path.abspath(__file__))
-ARCHIVO = os.path.join(DIR_ACTUAL, 'tratamientos.csv')
+ARCHIVO = 'tratamientos.csv'
 
 #PUNTO 2.4
 def det_dni_mayor_complejidad(v):
-    mayor_alta_complejidad = v[0]
+    mayor_monto = -1
+    dni_mayor = 0
 
     for tratamiento in v:
         if tratamiento.alta_complejidad == 'A':
-            if tratamiento.calcular_monto_final() > mayor_alta_complejidad.calcular_monto_final():
-                mayor_alta_complejidad = tratamiento
+            monto_actual = tratamiento.calcular_monto_final()
 
-    return mayor_alta_complejidad.dni
+            if monto_actual > mayor_monto:
+                mayor_monto = monto_actual
+                dni_mayor = tratamiento.dni
+
+    return dni_mayor
             
+    
 
 #PUNTO 2.2 y 2.3
 def det_letra_destacada(v):

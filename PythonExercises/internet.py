@@ -95,15 +95,15 @@ contenga la cantidad de clientes  (144 contadores). Muestre de dicha matriz solo
 """ 
 def count(v):
     n = len(v)
-    matriz = 9 * [0]
+    matriz = 9 * [0] #creo mi lista de 9 posiciones
 
     for i in range(9):
-        matriz[i] = 16 *[0] #accedo a la matriz y cargo los contadores
+        matriz[i] = 16 *[0] #accedo a cada posicion y cargo alli otras 16 posiciones
     #contamos la acumulacion por cliente y producto
     for i in range(n):
         f = v[i].client_type
         c= v[i].product_type
-        matriz[f][c] += 1
+        matriz[f][c] += 1 #primero el 9 y luego uno de los 16 contadores dentro. es por  el orden
 
 """
 5 - A partir del arreglo, genere un archivo binario con todas las facturas que sean de un tipo x ingresado por parámetro
