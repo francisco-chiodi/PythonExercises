@@ -1,34 +1,36 @@
-import random
+"""
+Una concesionaria de autos solicita un programa para gestionar sus ventas. Por cada Venta se conoce el nombre del cliente
+, el tipo de venta (un valor entre 0 y 3 incluido), marca de auto (un valor entre 1 y 15), la cantidad de cuotas pagas,
+el monto total del plan. A través de un menú de opciones, realizar los siguientes puntos:
 
-class Carclass:
-    def __init__(self,name,types,brand,quote,total):
+"""
+import random
+class Car:
+    def __init__(self,name,types,brand,quotes,ammount):
         self.name = name
         self.types = types
         self.brand = brand
-        self.quote = quote
-        self.total = total
+        self.quotes = quotes
+        self.ammount = ammount
 
     def __str__(self):
-        line = "=" * 81
-        string = f"| {self.name:>30} | {self.types:^20} | {self.brand:>20} | {self.quote:^10} | {self.total:<20}|\n"
-        f"{line:<86}\n"
+        lines = "=" * 98
+        string = ( f"| {self.name:>25} | {self.types:^10} | {self.brand:^10}| {self.quotes:^8} | {self.ammount:>30}\n"
+                   f"{lines}\n")
         return string
 
 def header():
-    line = "=" * 81
-
-    string = f"{line:>80}  \n " \
-                f"| {'nombre':>30} | {'tipo de venta':^20} | {'marca':>20} | {'cuota':^10} | {'total':<20} \n " \
-                f"{line:>80} \n"
+    lines = "=" * 98
+    string = (f"{lines}\n"
+              f"| {'nombre:':>25} | {'tipo de venta:':^10} | {'marca':^10} |  {'cuotas':^8}| {'total:':>25}|\n"
+              f"{lines}\n")
     return string
 
-def gen_name():
-    nombres = ('Melvin', 'Marny', 'Vielka', 'Connor', 'Yvette', 'Beard', 'Hahn', 'Beau', 'Spencer', 'Crawford',
-                   'Duncan', 'Barron', 'Michelle', 'Walton', 'Kirsten', 'Reece', 'Robinson', 'Dylan', 'West')
+def name_gen():
+    name = ('Melvin', 'Marny', 'Vielka', 'Connor', 'Yvette', 'Beard', 'Hahn', 'Beau', 'Spencer', 'Crawford',
+            'Duncan', 'Barron', 'Michelle', 'Walton', 'Kirsten', 'Reece', 'Robinson', 'Dylan', 'West')
+    lastname = ('Chandler', 'Maxwell', 'Gregory', 'Brooks', 'Burke', 'Meyers', 'Beard', 'Xanthus', 'Crawford',
+                'Barron', 'Walton', 'Jenkins', 'Robinson', 'West')
+    return f"{random.choice(name)} {random.choice(lastname)}"
 
-    apellidos = ('Chandler', 'Maxwell', 'Gregory', 'Brooks', 'Burke', 'Meyers', 'Beard', 'Xanthus', 'Crawford',
-                     'Barron', 'Walton', 'Jenkins', 'Robinson', 'West')
-    return f"{random.choice(nombres)} {random.choice(apellidos)}"
 
-#def gen_num():
-    return f"{random.randint(350, 373)}{random.randint(1, 9)}{random.randint(111111, 999999)}"
