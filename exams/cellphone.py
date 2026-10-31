@@ -23,6 +23,9 @@ por parámetro sobre el total de líneas del archivo.
  contrario indicar con un mensaje que no existe.
 
 """
+
+
+"""
 import random
 import cellclass
 
@@ -33,11 +36,6 @@ def validate():
         n = int(input("error, ingrese un numero mayor a 0"))
     return n
 
-"""
-Una empresa dedicada a la venta de líneas para celulares nos pidió un programa que permita realizar una serie de informes.
- De cada línea se sabe el número, el nombre del titular, el tipo de plan (valor de 0 a 19),
-  la cantidad de minutos consumidos, y la provincia donde se activó la línea (valor de 1 a 23).
-"""
 
 def charge(v):
     n = validate()
@@ -80,3 +78,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+"""

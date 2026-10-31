@@ -37,7 +37,7 @@ def digit(char):
 
 def principal():
 
-    m = open("entrada.txt")
+    m = open("../exams/entrada.txt")
     text = m.read()
     m.close()
 

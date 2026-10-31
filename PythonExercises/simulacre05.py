@@ -41,7 +41,7 @@ def is_even(char):
     return char in "02468"
 
 def principal():
-    m = open("entrada.txt")
+    m = open("../exams/entrada.txt")
     text = m.read()
     m.close()
     lc = wc = r1 = l = e = vc = cc = quantity = tu = 0

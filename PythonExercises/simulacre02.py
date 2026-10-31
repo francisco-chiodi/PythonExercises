@@ -5,7 +5,7 @@ mayúscula). Por ejemplo, en el texto: "Ax1efDa es una password aceptable pero 1
 Respuesta: hay solo una palabra que cumple: "Ax1efDa". La palabra "123aei" tiene los dígitos pedidos pero
 no tiene ninguna consonante a partir de la cuarta posición, por lo que no cuenta.
 """
-def digit(char):
+"""def digit(char):
     return "0" <= char <= "9"
 def vocal(char):
     return char in "aeiouáéíóúAEIOUÁÉÍÓÚ"
@@ -15,7 +15,7 @@ def con(char):
 
 def principal():
 
-    m = open("entrada.txt")
+    m = open("../exams/entrada.txt")
     text = m.read()
     m.close()
     letter_counter = word_counter = cons_count = count_condition= 0
@@ -47,3 +47,15 @@ def principal():
 
 if __name__ == "__main__": 
     principal()
+    
+    
+    Determinar la cantidad de palabras que tienen un dígito en la segunda o en la tercera posición y además
+incluyen dos o más consonantes pero a partir de la cuarta posición, incluida la cuarta (en minúscula o
+mayúscula). Por ejemplo, en el texto: "Ax1efDa es una password aceptable pero 12r3aei no lo es."
+Respuesta: hay solo una palabra que cumple: "Ax1efDa". La palabra "123aei" tiene los dígitos pedidos pero
+no tiene ninguna consonante a partir de la cuarta posición, por lo que no cuenta.
+"""
+def main():
+    m = open(entrada.txt)
+if "__name__" == "main":
+    main()
