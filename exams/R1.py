@@ -44,6 +44,8 @@ el arreglo completo y ordenarlo al final, o aplicar el algoritmo de inserción o
 búsqueda secuencial). Valide la carga del valor n. Debe generar los datos en forma automática (con
 valores aleatorios).
 """
+import os
+import pickle
 import R1class
 
 def validate(inf,message):
@@ -60,6 +62,7 @@ def valrange(inf,sup,message):
             n = int(input("que sea entre 1 y 5: "))
     return n
 
+
 def charge(v):
     n = validate(0,"cargue un numero mayor a 0: ")
     v = n * [None]
@@ -72,12 +75,35 @@ def charge(v):
         v[i] = R1class.r1(ide,name,addr,employee,tribute)
     return v
 
+"""
+3. Guardar en un archivo binario todos los comercios cuyo monto anual de impuestos esté comprendido
+entre i1 e i2 (dos valores que se cargan por teclado y sobre los que no se requiere ninguna validación).
+def binary(v, file, num):
+    m = open(file, "wb")
+    for record in v:
+        if record.ammount > num and record.types != 2:
+            pickle.dump(record, m)
+    m.close()
+"""
+
+def binary(v,file,i1,i2):
+    m = open(file,"wb")
+    for record in v:
+        if record.tribute in range(i1,i2):
+            pickle.dump(record, m)
+        m.close()
 
 
 def show(v):
 
-    for i in v:
+    c = 0
+    for i in v: # i asi no es la posicion sino el objeto mismo dentro de la lista.
         print(f"los vectores son: {i}")
+
+        c += i.employees
+
+    print(f"la cantidad total de empleados es {c} ")
+
 
 def main():
     v = []
@@ -93,6 +119,20 @@ def main():
 
         elif option == 2:
             show(v)
+
+        elif option == 3:
+
+            file = "facturas.dat"
+            i1 = int(input("ingrese el monto anual i1: "))
+            i2 = int(input("ingrese el monto anual i2: "))
+            binary(v,file,i1,i2)
+            print("carga realizada con exito")
+
+
+            """
+            3. Guardar en un archivo binario todos los comercios cuyo monto anual de impuestos esté comprendido
+            entre i1 e i2 (dos valores que se cargan por teclado y sobre los que no se requiere ninguna validación).
+            """
 
 
 if __name__ == "__main__":

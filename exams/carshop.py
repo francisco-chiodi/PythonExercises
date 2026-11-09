@@ -19,7 +19,7 @@ en un valor x (donde x se lee desde teclado) y mostrar los datos. En caso de no 
 determinar cual es la cantidad de cuotas pagas que se tienen y cual es el porcentaje que dichas cuotas representan sobre el total de cuotas pagas.
 """
 import random
-import carclass
+from exams import carclass
 import pickle
 import os
 def average(acumulado,total):
@@ -48,7 +48,7 @@ def charge(v,n):
         brand = random.randint(1,15)
         quotes = random.randint(1,74)
         ammount = random.randint(150000,450000)
-        record = carclass.Car(name,types,brand,quotes,ammount)
+        record = carclass.Car(name, types, brand, quotes, ammount)
         add_order(v,record)
 
 def add_order(v,record):
@@ -170,7 +170,7 @@ def main():
                  print("no encontrado")
         elif option == 4:
             if len(v) > 0:
-                file = "facturas.dat"
+                file = "../PythonExercises/facturas.dat"
                 num = validate( 0, "Ingrese el monto mínimo facturado a filtrar: ")
                 binary(v, file, num)
                 read_binary(file)
