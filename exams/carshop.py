@@ -132,10 +132,6 @@ def read_binary(file):
 
     print(lines)
 
-
-
-
-
 def main():
     v = []
     print("1. Cargar vector")

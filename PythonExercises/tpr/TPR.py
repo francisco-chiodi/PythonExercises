@@ -12,7 +12,6 @@ def add_in_order(papers, nuevo_paper):
             break
     papers.insert(pos, nuevo_paper)
 
-
 def contar_vocales_titulo(titulo):
     """Cuenta cuántas palabras del título comienzan con vocal."""
     titulo_limpio = titulo.replace(".", "")
@@ -23,7 +22,6 @@ def contar_vocales_titulo(titulo):
         if len(palabra) > 0 and palabra[0] in vocales:
             cantidad += 1
     return cantidad
-
 
 def opcion_1():
     """Carga los papers desde el archivo CSV e imprime los resultados esperados."""

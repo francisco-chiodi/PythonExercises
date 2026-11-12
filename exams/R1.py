@@ -44,96 +44,138 @@ el arreglo completo y ordenarlo al final, o aplicar el algoritmo de inserción o
 búsqueda secuencial). Valide la carga del valor n. Debe generar los datos en forma automática (con
 valores aleatorios).
 """
+"""
+1. Cargar un arreglo de objetos con los datos de n objetos de la clase Comercio de manera que en todo
+momento se mantenga ordenado por nombre. Para esto debe utilizar el algoritmo de inserción
+ordenada con búsqueda binaria (se considerará directamente incorrecta la solución basada en cargar
+el arreglo completo y ordenarlo al final, o aplicar el algoritmo de inserción ordenada pero con
+búsqueda secuencial). Valide la carga del valor n. Debe generar los datos en forma automática (con
+valores aleatorios).
+"""
+import  R1class
 import os
 import pickle
-import R1class
 
-def validate(inf,message):
+def val(inf,message):
     n = int(input(message))
-    while n <= inf:
-        n = int(input("porfavor, que sea mayor a 0: "))
+    while n < inf:
+        n = int(input("porfavor, que sea mayor a 0"))
     return n
 
-def valrange(inf,sup,message):
-    n = -1
-    while n != -5:
-        n = int(input(message))
-        if n < inf or n > sup:
-            n = int(input("que sea entre 1 y 5: "))
-    return n
-
-
-def charge(v):
-    n = validate(0,"cargue un numero mayor a 0: ")
-    v = n * [None]
+def create(v,n):
     for i in range(n):
-        ide = R1class.id_gen()
+        iden = R1class.id_gen()
         name = R1class.name_gen()
         addr = R1class.addres_gen()
-        employee = R1class.employee_gen()
+        employees = R1class.employee_gen()
         tribute = R1class.tribute_gen()
-        v[i] = R1class.r1(ide,name,addr,employee,tribute)
-    return v
+        record = R1class.r1(iden,name,addr,employees,tribute)
+        charge_order(v,record)
+
+"""
+2. Mostrar los datos del arreglo a razón de un comercio por línea. Indique al final del listado la cantidad
+total de trabajadores que trabajan entre todos los comercios que se mostraron.
+"""
 
 """
 3. Guardar en un archivo binario todos los comercios cuyo monto anual de impuestos esté comprendido
 entre i1 e i2 (dos valores que se cargan por teclado y sobre los que no se requiere ninguna validación).
-def binary(v, file, num):
-    m = open(file, "wb")
-    for record in v:
-        if record.ammount > num and record.types != 2:
-            pickle.dump(record, m)
-    m.close()
 """
 
-def binary(v,file,i1,i2):
-    m = open(file,"wb")
-    for record in v:
-        if record.tribute in range(i1,i2):
-            pickle.dump(record, m)
-        m.close()
+
+def gen(v,i1,i2,archive):
+    m = open(archive,"wb")
+    for request in v:
+        if request.tribute >= i1 and request.tribute <= i2:
+            pickle.dump(request,m)
+    m.close()
+
+"""
+4. Mostrar el archivo generado en el punto anterior. Muestre al final del listado la cantidad promedio de
+trabajadores que trabajan en los comercios mostrados.
+"""
+
+def average(quantity,total):
+    return quantity//total
+
+def show_file(archive):
+    total = 0
+    quantity = 0
+    if not os.path.exists(archive):
+        print("el archivo no se genero")
+        return
+    size = os.path.getsize(archive)
+    if size == 0:
+        print("el archivo esta vacio")
+    else:
+        m = open(archive,"rb")
+        while m.tell() < size:
+            record = pickle.load(m)
+            quantity += record.employees
+            total += record.name
+            m.close()
+            promedio = average(quantity,total)
+        print("el promedio es", promedio)
+
 
 
 def show(v):
 
-    c = 0
-    for i in v: # i asi no es la posicion sino el objeto mismo dentro de la lista.
-        print(f"los vectores son: {i}")
+    accumulator = 0
+    for record in v:
+        print("el vector es:",record)
 
-        c += i.employees
+        accumulator += record.employees
 
-    print(f"la cantidad total de empleados es {c} ")
+    print("la cantidad de empleados es", accumulator)
+    return accumulator
+
+def charge_order(v,record):
+    left = 0
+    right = len(v) -1
+    pos = 0
+    while left <= right:
+        mid = (left+right)//2
+        if record.name == v[mid].name:
+            pos = mid
+            break
+
+        if record.name < v[mid].name:
+            right = mid -1
+        else:
+            left = mid + 1
+
+        if left > right:
+            pos = left
+    v[pos:pos] = [record]
+    return v
 
 
 def main():
     v = []
-    print("porfavor ingrese una opcion: \n"
-          "1: cargar vector\n"
-          "2: mostrar vector\n")
-    option = -1
-    while option != 5:
-        option = int(input("ingrese una opcion: "))
-        if option == 1:
-           v = charge(v)
-           print("vector cargado")
+    print("1. Cargar y ordenar")
+    print("2. mostrar")
+    print("3. Crear binario")
 
-        elif option == 2:
+    option = -1
+    while option != 6:
+        option = int(input("ingrese una opcion: "))
+
+        if option == 1:
+            n = val(0, "ingrese un numero mayor a 0: ")
+            create(v,n)
+
+        if option == 2:
             show(v)
 
-        elif option == 3:
+        if option == 3:
+            archive = "name.dat"
+            i1 = int(input("ingrese el impuesto minimo"))
+            i2 = int(input("ingrese el impuesto maximo"))
+            gen(v,i1,i2,archive)
 
-            file = "facturas.dat"
-            i1 = int(input("ingrese el monto anual i1: "))
-            i2 = int(input("ingrese el monto anual i2: "))
-            binary(v,file,i1,i2)
-            print("carga realizada con exito")
-
-
-            """
-            3. Guardar en un archivo binario todos los comercios cuyo monto anual de impuestos esté comprendido
-            entre i1 e i2 (dos valores que se cargan por teclado y sobre los que no se requiere ninguna validación).
-            """
-
+        if option == 4:
+            show_file(archive)
 
 if __name__ == "__main__":
     main()

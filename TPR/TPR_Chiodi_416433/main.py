@@ -1,17 +1,30 @@
+"""Pido disculpas en mi entrega anterior no estaba ordenandose en todo momento el vector porque implemente mal mi
+funcion de ordenamiento, ordene todo al final con seleccion directa y cuando me puse a practicar para el recuperatorio
+me volvi a encontrar con la funcion de insercion ordenada con busqueda binaria, que cumple correctamente e hice la revision.
+"""
+
 import os
 import pickle
 import clases
 
 ARCHIVO_CSV = 'papers.csv'
 ARCHIVO_BIN = 'resumen.dat'
-
-def ordenar_vector(v):
-    n = len(v)
-    for i in range(n - 1):
-        for j in range(i + 1, n):
-            if v[i].id_paper > v[j].id_paper:
-                v[i], v[j] = v[j], v[i]
-
+def anadir_orden(v, paper):
+    izq = 0
+    der = len(v) - 1
+    pos = 0
+    while izq <= der:
+        medio = (izq + der) // 2
+        if v[medio].id_paper == paper.id_paper:
+            pos = medio
+            break
+        if paper.id_paper < v[medio].id_paper:
+            der = medio - 1
+        else:
+            izq = medio + 1
+    if izq > der:
+        pos = izq
+    v[pos:pos] = [paper]
 
 def procesar_archivo():
     datos = []
@@ -23,9 +36,11 @@ def procesar_archivo():
         for linea in archivo:
             if cabecera:
                 cabecera = False
-                continue
+                continue #recordamos que continue vive dentro del for, entonces si bien ignora el resto del codigo , la segunda vuelta
+                #del for ocurrira y alli la cabezera ya fue saltada(que es la primer linea leida).
             else:
-                campos = linea.strip().split(';')
+                linea = linea.strip()
+                campos = linea.split(';')
                 id_paper = campos[0]
                 titulo = campos[1]
                 autor = campos[2]
@@ -33,18 +48,14 @@ def procesar_archivo():
                 obviedad = int(campos[4])
 
                 nuevo_paper = clases.Paper(id_paper, titulo, autor, motivo, obviedad)
-                datos.append(nuevo_paper)  # Carga simple al final
+                anadir_orden(datos, nuevo_paper)
 
         archivo.close()
-
-        # Una vez cargado completo, se ordena de menor a mayor por id_paper
-        ordenar_vector(datos)
-
     return datos
-
 
 def mostrar_r1_1(v):
     encontrados = []
+
     for paper in v:
         if paper.motivo == 3 and paper.obviedad == 5:
             encontrados.append(paper)
@@ -57,7 +68,6 @@ def mostrar_r1_1(v):
             print(p)
     else:
         print('Cantidad insuficiente')
-
 
 def mostrar_r1_2(v):
     total_vocales = 0
@@ -78,8 +88,6 @@ def mostrar_r1_2(v):
 
     print('r.1.2:', total_vocales)
 
-
-# Punto 2
 def opcion_2(v):
     print('r.2.1:')
     mostrados = 0
@@ -97,18 +105,15 @@ def opcion_2(v):
 
     print('r.2.2:', mayor_motivo)
 
-
-# Punto 3
 def opcion_3(v):
-    # a) Generar matriz de conteo (6 motivos x 5 obviedades)
-    conteo = [[0] * 5 for i in range(6)]
+
+    conteo = [[0] * 5 for i in range(6)]#Mi Nota: filas (0-5 motivos), columnas (0-4 obviedades)
 
     for paper in v:
-        f = paper.motivo - 1
+        f = paper.motivo - 1 #ajusto indices
         c = paper.obviedad - 1
         conteo[f][c] += 1
 
-    # b) Grabar el archivo binario usando pickle
     archivo_bin = open(ARCHIVO_BIN, 'wb')
     cant_guardados = 0
 
@@ -117,26 +122,22 @@ def opcion_3(v):
             if conteo[f][c] > 0:
                 desc_m = clases.MOTIVOS[f]
                 desc_o = clases.OBVIEDADES[c]
-                tot = clases.Totalizador(desc_m, f + 1, c + 1, desc_o, conteo[f][c])
-                pickle.dump(tot, archivo_bin)
+                totalclass = clases.Totalizador(desc_m, f + 1, c + 1, desc_o, conteo[f][c]) #ajusto indices, cargo
+                pickle.dump(totalclass, archivo_bin)
                 cant_guardados += 1
 
     archivo_bin.close()
     print('r.3.1:', cant_guardados)
 
-    # c) Mostrar filtrando por la cantidad del primer registro
     print('r.3.2:')
     if os.path.exists(ARCHIVO_BIN):
         tam = os.path.getsize(ARCHIVO_BIN)
         if tam > 0:
             archivo_bin = open(ARCHIVO_BIN, 'rb')
 
-            # Leer solo el primero para obtener la cantidad a comparar
             primer_registro = pickle.load(archivo_bin)
             cantidad_base = primer_registro.cantidad
-
-            # Volver el cursor al principio para recorrer todo de nuevo
-            archivo_bin.seek(0)
+            archivo_bin.seek(0)#vuelvo al inicio el puntero
 
             while archivo_bin.tell() < tam:
                 registro = pickle.load(archivo_bin)
@@ -146,8 +147,6 @@ def opcion_3(v):
 
             archivo_bin.close()
 
-
-# Punto 4
 def opcion_4(v, id_buscado):
     encontrado = False
 
@@ -164,52 +163,50 @@ def opcion_4(v, id_buscado):
             break
 
     if not encontrado:
-        print('r.4.1: Paper inexistente')
+        print('r.4.1: El paper no existe')
 
-
-# Menú y Main
 def menu():
-    print('\n=== Menú de opciones ===')
-    print('1) Cargar papers')
-    print('2) Listar cinco papers por obviedad')
-    print('3) Totalizar por motivo y obviedad')
-    print('4) Buscar paper')
-    print('0) Salir')
+    print('=== Menú de opciones ===')
+    print('1. Cargar papers')
+    print('2. Listar cinco papers por obviedad')
+    print('3. Totalizar por motivo y obviedad')
+    print('4. Buscar paper')
+    print('0. Salir')
     n = int(input('Ingrese opción: '))
     return n
 
-
 def principal():
-    opc = -1
+    opcion = -1
     papers = []
+    while opcion != 0:
+        opcion = menu()
 
-    while opc != 0:
-        opc = menu()
-
-        if opc == 1:
+        if opcion == 1:
             papers = procesar_archivo()
             mostrar_r1_1(papers)
             mostrar_r1_2(papers)
 
-        elif opc == 2:
+        elif opcion == 2:
             if not papers:
-                print("Primero debe cargar los datos (Opción 1)")
+                print("Primero debe cargar los datos")
             else:
                 opcion_2(papers)
 
-        elif opc == 3:
+        elif opcion == 3:
             if not papers:
-                print("Primero debe cargar los datos (Opción 1)")
+                print("Primero debe cargar los datos")
             else:
                 opcion_3(papers)
 
-        elif opc == 4:
+        elif opcion == 4:
             if not papers:
-                print("Primero debe cargar los datos (Opción 1)")
+                print("Primero debe cargar los datos ")
             else:
                 id_buscado = input('Ingrese ID a buscar: ')
                 opcion_4(papers, id_buscado)
 
+#mis salidas no se muestran perfectamente alineadas, pero la consigna pide no tocar la clase paper y priorice seguirla.
+#gracias por todo! por su tiempo y dedicacion. es increible esta facultad.
 
 if __name__ == '__main__':
     principal()
