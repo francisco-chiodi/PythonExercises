@@ -7,8 +7,8 @@ class r1:
         self.employees = employees
         self.tribute = tribute
     def __str__(self):
-        r = f"identificador: {self.id:<20} | nombre: {self.name:<20} | direccion: {self.addr:<20} | empleados: {self.employees:<20}\n"
-        f"impuestos: {self.tribute}"
+        r = (f"identificador: {self.id:<20} | nombre: {self.name:<20} | direccion: {self.addr:<20} | empleados: {self.employees:<20}\n"
+        f"impuestos: {self.tribute}")
         return r
 
 

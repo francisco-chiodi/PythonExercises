@@ -95,8 +95,8 @@ def gen(v,i1,i2,archive):
 trabajadores que trabajan en los comercios mostrados.
 """
 
-def average(quantity,total):
-    return quantity//total
+def average(total,quantity):
+    return total//quantity
 
 def show_file(archive):
     total = 0
@@ -105,19 +105,40 @@ def show_file(archive):
         print("el archivo no se genero")
         return
     size = os.path.getsize(archive)
+    print("el tamano es ", size)
     if size == 0:
         print("el archivo esta vacio")
     else:
         m = open(archive,"rb")
         while m.tell() < size:
             record = pickle.load(m)
-            quantity += record.employees
-            total += record.name
-            m.close()
-            promedio = average(quantity,total)
-        print("el promedio es", promedio)
+            total += record.employees
+            quantity += 1 #un simple contador para el comercio
+            print("lista: ", record)
 
+        prom = average(total,quantity)
 
+        m.close()
+        print("promedio: ",prom)
+
+"""
+5. Buscar en el arreglo generado en el punto 1 un comercio cuyo nombre sea nom (un valor ingresado
+por teclado). Si el comercio se encuentra en el vector, mostrar sus datos y retornar el título del mismo
+para utilizar luego en el ítem 6. Si el artículo no se encuentra, mostrar el mensaje "El comercio no
+existe, llame al (111) 0303456 para mayor detalle.", y retornar ese mismo mensaje para ser usado en
+el punto 6.
+"""
+
+def search(v,nom):
+    for record in v:
+        if record.name == nom:
+            print("se encontro el nombre: ", record)
+            return nom
+
+    message = "El comercio no existe, llame al (111) 0303456 para mayor detalle."
+    print(message)
+
+    return message
 
 def show(v):
 
@@ -130,13 +151,14 @@ def show(v):
     print("la cantidad de empleados es", accumulator)
     return accumulator
 
+
 def charge_order(v,record):
     left = 0
     right = len(v) -1
     pos = 0
     while left <= right:
         mid = (left+right)//2
-        if record.name == v[mid].name:
+        if record.name == v[mid].name:#estas ordenando el vector por eso lo comparas contra si mismo
             pos = mid
             break
 
@@ -150,12 +172,37 @@ def charge_order(v,record):
     v[pos:pos] = [record]
     return v
 
+"""
+6. Procesar la cadena resultante del punto 5 para responder la siguiente pregunta: ¿Cuál es la cantidad de
+palabras de esa cadena que contienen, al menos, 2 dígitos impares y ningún 0? El texto debe ser
+procesado obligatoriamente caracter a caracter, a razón de uno por vuelta de ciclo.
+    "El comercio no existe, llame al (111) 0303456 para mayor detalle."
+
+"""
+def word(function):
+    digits = "0123456789"
+    numbers = 0
+    letters = 0
+    for char in function:
+        if char not in " .,":
+            letters += 1
+            if char in digits:
+                if len(char) % 2 != 0 and char != "0":
+                    numbers +=1
+    print("letras",letters)
+    print("numeros", numbers)
+
+
 
 def main():
     v = []
     print("1. Cargar y ordenar")
     print("2. mostrar")
     print("3. Crear binario")
+    print("4. mostrar promedio")
+    print("5. Buscar por nombre")
+    print("6. Procesar palabra")
+
 
     option = -1
     while option != 6:
@@ -176,6 +223,13 @@ def main():
 
         if option == 4:
             show_file(archive)
+
+        if option == 5:
+            nom = input("ingrese el nombre: ")
+            function = search(v,nom)
+
+        if option == 6:
+            word(function)
 
 if __name__ == "__main__":
     main()
