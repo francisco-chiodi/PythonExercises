@@ -40,8 +40,8 @@ import R4class
 import pickle
 import os
 
-def average(quantity,total):
-    return quantity//total
+def average(total,quantity):
+    return total//quantity
 
 def percentage(quantity,total):
     return (quantity * 100)//total
@@ -110,14 +110,13 @@ def search(v,l):
 promedio general, y que hayan cursado en el curso c, siendo c un valor que se carga por teclado.
 """
 def gen_bin(v,archive,c):
+    m = open(archive,"wb")
     total = 0
     quantity = 0
-    m = open(archive,"wb")
-    for i in v:
-        total += 1
-        quantity = quantity + i.nota
-    prom = average(quantity,total)
-
+    for record in v:
+        total = total + record.nota
+        quantity += 1
+    prom = average(total,quantity)
     for record in v:
         if record.nota > prom and record.curso == c:
             pickle.dump(record,m)
@@ -126,14 +125,53 @@ def gen_bin(v,archive,c):
 5. Mostrar el archivo creado en el punto anterior, a razón de un alumno por línea en la pantalla.
 """
 def show_bin(archive):
+    m = open(archive, "rb")
     if os.path.exists(archive):
-        m = open(archive,"rb")
-        print("el archivo existe")
         size = os.path.getsize(archive)
         while m.tell() < size:
             record = pickle.load(m)
             print(record)
-        m.close()
+    m.close()
+
+"""
+6. Tome la cadena contenida en el campo observaciones del primer objeto del arreglo generado en el
+punto 1, e indique cuántas palabras comienzan con una vocal (mayúscula o minúscula) que no sea la
+"a", y no contienen ninguna “s” (mayúscula o minúscula). El texto debe ser procesado
+obligatoriamente caracter a caracter, a razón de uno por vuelta de ciclo.
+
+"""
+def chain(v):
+    flag = True
+    letter = 0
+    cumplio = 0
+    primer = 0
+
+    vocal = "eiouáéíóúüEIOU"
+    des = v[0].observaciones
+    for char in des:
+        if char not in " .,":
+            letter += 1
+            if letter == 1 and char in vocal:
+                primer += 1
+            if char in "sS":
+                flag = False
+
+        else:
+            if primer == 1 and flag:
+                cumplio += 1
+
+            letter = 0
+            primer = 0
+            flag = True
+
+    return cumplio
+
+
+
+
+
+
+
 
 def show(v):
     for record in v:
@@ -165,5 +203,8 @@ def main():
         if option == 5:
             show_bin(archive)
 
+        if option == 6:
+            record = chain(v)
+            print(record)
 if __name__ == "__main__":
         main()
