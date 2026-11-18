@@ -22,7 +22,7 @@ def vocal(char):
     return char in "aeiouáéíóú"
 
 def principal():
-    m = open("../exams/entrada.txt")
+    m = open("../entrada.txt")
     text = m.read()
     m.close()
 

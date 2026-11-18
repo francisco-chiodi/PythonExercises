@@ -1,5 +1,5 @@
-import os 
-import tratamientos
+import os
+from PythonExercises import tratamientos
 
 ARCHIVO = 'tratamientos.csv'
 

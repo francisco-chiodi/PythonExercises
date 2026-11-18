@@ -32,7 +32,7 @@ def cons(char):
     return char.lower() in "bcdfghijklmnñpqrstvwxyz"
 
 def principal():
-    m = open("../exams/entrada.txt")
+    m = open("../entrada.txt")
     text = m.read()
     m.close()
 
